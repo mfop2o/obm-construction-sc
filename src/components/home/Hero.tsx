@@ -50,7 +50,7 @@ function Line({ words }: { words: string[] }) {
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-primary-950 text-white">
+    <section className="relative -mt-16 flex min-h-[100svh] flex-col justify-end overflow-hidden bg-primary-950 text-white lg:-mt-20">
       {/* Photography with slow scale-in reveal */}
       <motion.div
         initial={{ scale: 1.15 }}
@@ -89,7 +89,7 @@ export default function Hero() {
           className="max-w-5xl font-display text-[12.5vw] font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.75rem]"
         >
           <Line words={['We', 'Build']} />
-          <Line words={['What', 'Matters.']} />
+          <Line words={['a', 'fair', 'World.']} />
         </motion.h1>
 
         <motion.p

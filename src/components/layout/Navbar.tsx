@@ -80,7 +80,7 @@ export default function Navbar() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         dark
-          ? 'border-b border-transparent bg-transparent'
+          ? 'border-b border-white/10 bg-transparent'
           : scrolled
             ? 'border-b border-primary-200/70 bg-background/90 shadow-sm backdrop-blur-xl'
             : 'border-b border-transparent bg-background/70 backdrop-blur-sm',
