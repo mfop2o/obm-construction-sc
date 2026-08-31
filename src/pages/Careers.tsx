@@ -185,30 +185,6 @@ export default function Careers() {
         </Container>
       </Section>
 
-      {/* ---- CTA ---- */}
-      <Section as="section" padding="xl" className="bg-primary-900 text-white">
-        <Container>
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-            <div className="max-w-xl">
-              <p className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-400">
-                <span className="inline-block h-px w-8 bg-accent-400" />
-                Don&rsquo;t see your role?
-              </p>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">
-                We&rsquo;re always looking for great people.
-              </h2>
-              <p className="mt-4 text-primary-300">
-                Send us your CV and tell us how you&rsquo;d contribute to the
-                build.
-              </p>
-            </div>
-            <Button as="link" to="/contact" variant="accent" size="lg">
-              Get in Touch
-              <ArrowRight size={18} />
-            </Button>
-          </div>
-        </Container>
-      </Section>
     </>
   )
 }

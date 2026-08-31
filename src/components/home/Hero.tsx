@@ -67,8 +67,8 @@ export default function Hero() {
       </motion.div>
 
       {/* overlays for legibility */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/55 to-primary-950/30" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary-950/85 via-primary-950/35 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary-950/80 via-primary-950/25 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary-950/60 via-primary-950/15 to-transparent" />
 
       {/* content */}
       <Container className="relative pb-20 pt-32 md:pb-28">

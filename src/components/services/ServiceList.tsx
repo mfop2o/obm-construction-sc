@@ -48,7 +48,7 @@ export function ServiceList({ services }: ServiceListProps) {
               <Link
                 to="/services"
                 className={cn(
-                  'group flex items-center gap-6 border-b border-primary-800 py-6 transition-colors duration-300 md:py-7',
+                  'group flex items-center gap-6 border-b border-primary-800 py-4.5 transition-colors duration-300 md:py-5',
                   isActive ? 'bg-primary-900' : 'hover:bg-primary-900/50',
                 )}
               >
@@ -64,7 +64,7 @@ export function ServiceList({ services }: ServiceListProps) {
                 <div className="flex-1">
                   <h3
                     className={cn(
-                      'font-display text-2xl font-semibold uppercase tracking-tight transition-all duration-300 md:text-3xl',
+                      'font-display text-xl font-semibold uppercase tracking-tight transition-all duration-300 md:text-2xl',
                       isActive
                         ? 'translate-x-2 text-white'
                         : 'text-white group-hover:text-white',

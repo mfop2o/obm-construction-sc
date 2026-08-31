@@ -106,56 +106,55 @@ export default function About() {
         </Container>
       </Section>
 
-      {/* ---------- Mission ---------- */}
+      {/* ---------- Mission & Vision ---------- */}
       <Section as="section" padding="lg" className="border-t border-primary-200 bg-white">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:items-start">
-            <div className="flex items-center gap-4 text-primary-900">
-              <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center bg-primary-900 text-accent-400">
-                <Compass size={24} />
-              </span>
-              <p className="text-xs font-medium uppercase tracking-[0.25em] text-accent-500">
-                Our Mission
-              </p>
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Mission */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 text-primary-900">
+                <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center bg-primary-900 text-accent-400">
+                  <Compass size={24} />
+                </span>
+                <p className="text-xs font-medium uppercase tracking-[0.25em] text-accent-500">
+                  Our Mission
+                </p>
+              </div>
+              <motion.blockquote
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: '-80px' }}
+                className="border-l-2 border-accent-400 pl-8"
+              >
+                <p className="font-display text-lg font-medium leading-relaxed text-primary-950 md:text-xl">
+                  {mission}
+                </p>
+              </motion.blockquote>
             </div>
-            <motion.blockquote
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-80px' }}
-              className="border-l-2 border-accent-400 pl-8"
-            >
-              <p className="font-display text-2xl font-semibold leading-snug text-primary-950 md:text-3xl">
-                {mission}
-              </p>
-            </motion.blockquote>
-          </div>
-        </Container>
-      </Section>
 
-      {/* ---------- Vision (dark) ---------- */}
-      <Section as="section" padding="lg" className="bg-primary-950 text-white">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:items-start">
-            <div className="flex items-center gap-4">
-              <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center bg-accent-400 text-primary-950">
-                <Crosshair size={24} />
-              </span>
-              <p className="text-xs font-medium uppercase tracking-[0.25em] text-accent-400">
-                Our Vision
-              </p>
+            {/* Vision */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 text-primary-900">
+                <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center bg-primary-100 text-accent-500">
+                  <Crosshair size={24} />
+                </span>
+                <p className="text-xs font-medium uppercase tracking-[0.25em] text-accent-500">
+                  Our Vision
+                </p>
+              </div>
+              <motion.blockquote
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: '-80px' }}
+                className="border-l-2 border-accent-400 pl-8"
+              >
+                <p className="font-display text-lg font-medium leading-relaxed text-primary-950 md:text-xl">
+                  {vision}
+                </p>
+              </motion.blockquote>
             </div>
-            <motion.blockquote
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-80px' }}
-              className="border-l-2 border-accent-400 pl-8"
-            >
-              <p className="font-display text-2xl font-semibold leading-snug text-white md:text-3xl">
-                {vision}
-              </p>
-            </motion.blockquote>
           </div>
         </Container>
       </Section>
@@ -209,7 +208,7 @@ export default function About() {
             description="Led by experienced engineers and construction professionals."
             align="center"
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             {leadership.map((member, i) => (
               <motion.div
                 key={`${member.name}-${i}`}
@@ -217,12 +216,12 @@ export default function About() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: '-40px' }}
-                className="group border border-primary-200 bg-background transition-colors duration-300 hover:border-primary-900"
+                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.75rem)] md:w-[calc(25%-0.75rem)] lg:w-[calc(16.666%-0.75rem)] xl:w-[calc(14.28%-0.75rem)] border border-primary-200 bg-background transition-colors duration-300 hover:border-primary-900"
               >
                 {/* Portrait — set `photo` on the member in src/data/about.ts to show a real one */}
                 <div
                   className={cn(
-                    'relative flex aspect-[4/3] items-center justify-center overflow-hidden',
+                    'relative flex aspect-square items-center justify-center overflow-hidden',
                     i % 2 === 0 ? 'bg-primary-900' : 'bg-primary-950',
                   )}
                 >
@@ -235,11 +234,11 @@ export default function About() {
                     />
                   ) : (
                     <>
-                      <span className="font-display text-5xl font-bold tracking-tight text-accent-400">
+                      <span className="font-display text-3xl font-bold tracking-tight text-accent-400">
                         {initials(member.name)}
                       </span>
                       <span
-                        className="absolute bottom-3 right-3 text-[10px] uppercase tracking-[0.2em] text-white/40"
+                        className="absolute bottom-2.5 right-2.5 text-[8px] uppercase tracking-[0.2em] text-white/40"
                         aria-hidden="true"
                       >
                         Photo placeholder
@@ -247,11 +246,11 @@ export default function About() {
                     </>
                   )}
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-lg font-semibold text-primary-950">
+                <div className="p-3 text-center">
+                  <h3 className="font-display text-sm font-semibold leading-tight text-primary-950">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-sm uppercase tracking-[0.15em] text-concrete">
+                  <p className="mt-1 text-[10px] uppercase tracking-[0.12em] text-concrete">
                     {member.role}
                   </p>
                 </div>
@@ -262,16 +261,16 @@ export default function About() {
       </Section>
 
       {/* ---------- Milestones ---------- */}
-      <Section as="section" padding="lg" className="border-t border-primary-200 bg-background">
+      <Section as="section" padding="sm" className="border-t border-primary-200 bg-background">
         <Container size="md">
           <SectionHeading
             eyebrow="Milestones"
             title="Key moments in our journey."
             align="center"
           />
-          <div className="relative mt-16">
+          <div className="relative mt-8">
             <span className="absolute left-4 top-0 h-full w-px bg-primary-200 md:left-1/2 md:-translate-x-px" />
-            <div className="space-y-12">
+            <div className="space-y-6">
               {milestones.map((m, i) => {
                 const left = i % 2 === 0
                 return (
@@ -300,40 +299,16 @@ export default function About() {
                     <span className="font-display text-sm font-bold tracking-[0.25em] text-accent-500">
                       {m.year}
                     </span>
-                    <h3 className="mt-2 font-display text-xl font-semibold text-primary-950">
+                    <h3 className="mt-1 font-display text-lg font-semibold text-primary-950">
                       {m.title}
                     </h3>
-                    <p className="mt-2 leading-relaxed text-concrete-dark">
+                    <p className="mt-1 leading-relaxed text-sm text-concrete-dark">
                       {m.description}
                     </p>
                   </motion.div>
                 )
               })}
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ---------- CTA ---------- */}
-      <Section as="section" padding="xl" className="bg-primary-900 text-white">
-        <Container>
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-            <div className="max-w-xl">
-              <p className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-400">
-                <span className="inline-block h-px w-8 bg-accent-400" />
-                Work With Us
-              </p>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">
-                Let&rsquo;s build something that matters.
-              </h2>
-              <p className="mt-4 text-primary-300">
-                Tell us about your project and our team will get back to you.
-              </p>
-            </div>
-            <Button as="link" to="/contact" variant="accent" size="lg">
-              Get in Touch
-              <ArrowRight size={18} />
-            </Button>
           </div>
         </Container>
       </Section>

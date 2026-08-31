@@ -36,27 +36,21 @@ export default function Services() {
       />
 
       {/* Editorial interactive service list (dark) */}
-      <Section as="section" padding="xl" className="bg-primary-950 text-white">
+      <Section as="section" padding="none" className="bg-primary-950 py-12 text-white md:py-16">
         <Container>
-          <div className="max-w-2xl">
-            <p className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-400">
-              <span className="inline-block h-px w-8 bg-accent-400" />
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-accent-400">
               Our Services
             </p>
-            <h2 className="mt-6 font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
-              Six disciplines,
-              <br />
-              one accountable partner.
-            </h2>
           </div>
-          <div className="mt-16">
+          <div className="mt-8">
             <ServiceList services={services} />
           </div>
         </Container>
       </Section>
 
       {/* Approach statement */}
-      <Section as="section" padding="lg" className="bg-background">
+      <Section as="section" padding="none" className="border-t border-primary-200 bg-background py-10 md:py-14">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
             <div>
@@ -64,7 +58,7 @@ export default function Services() {
                 <span className="inline-block h-px w-8 bg-current" />
                 How We Work
               </p>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-primary-950 md:text-4xl">
+              <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-primary-950 md:text-3xl">
                 A disciplined approach to every engagement.
               </h2>
             </div>
@@ -76,7 +70,7 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ delay: i * 0.06, duration: 0.5 }}
-                  className="group bg-white p-6 transition-colors duration-300 hover:bg-primary-50"
+                  className="group bg-white p-5 transition-colors duration-300 hover:bg-primary-50"
                 >
                   <span className="font-display text-sm font-bold tracking-[0.2em] text-accent-500">
                     {String(i + 1).padStart(2, '0')}
@@ -87,31 +81,6 @@ export default function Services() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* CTA */}
-      <Section as="section" padding="xl" className="bg-primary-900 text-white">
-        <Container>
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-            <div className="max-w-xl">
-              <p className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-400">
-                <span className="inline-block h-px w-8 bg-accent-400" />
-                Talk to Us
-              </p>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">
-                Not sure which service fits your project?
-              </h2>
-              <p className="mt-4 text-primary-300">
-                Tell us what you&rsquo;re building. Our engineers will guide
-                you to the right solution.
-              </p>
-            </div>
-            <Button as="link" to="/contact" variant="accent" size="lg">
-              Get a Quote
-              <ArrowRight size={18} />
-            </Button>
           </div>
         </Container>
       </Section>

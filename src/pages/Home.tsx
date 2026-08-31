@@ -6,7 +6,6 @@ import ProjectsPreview from '../components/home/ProjectsPreview'
 import WhyOBM from '../components/home/WhyOBM'
 import Process from '../components/home/Process'
 import Testimonials from '../components/home/Testimonials'
-import HomeCTA from '../components/home/HomeCTA'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 /* ============================================================================
@@ -30,7 +29,6 @@ export default function Home() {
       <WhyOBM />
       <Process />
       <Testimonials />
-      <HomeCTA />
     </>
   )
 }
