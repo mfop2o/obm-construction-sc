@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "testimonials": {
+      "title": "የምስክር ወረቀቶች",
+      "description": "በህዝባዊ ጣቢያው ላይ የቀረቡ የደንበኛ ጥቅሶች።",
+      "newTestimonial": "አዲስ ምስክርነት",
+      "createTestimonial": "ምስክርነት ፍጠር",
+      "editTestimonial": "ምስክርነት አርትዕ",
+      "newTestimonialForm": "አዲስ ምስክርነት",
+      "quote": "ጥቅስ",
+      "name": "ስም",
+      "role": "የስራ ድርሻ",
+      "company": "ኩባንያ",
+      "featured": "ተመራጭ",
+      "update": "አዘምን",
+      "create": "ፍጠር",
+      "cancel": "ሰርዝ",
+      "feature": "ልዩ አድርግ",
+      "unfeature": "ከመረጣ አውጣ",
+      "noTestimonials": "ምንም ምስክርነቶች የሉም",
+      "noTestimonialsDesc": "ማህበራዊ ማረጋገጫን ለመገንባት የመጀመሪያዎን ምስክርነት ያክሉ።",
+      "saveError": "ምስክርነትን ማስቀመጥ አልተሳካም።",
+      "featuredError": "የተመራጭነት ሁኔታን ማዘመን አልተሳካም።",
+      "deleteError": "ምስክርነትን መሰረዝ አልተሳካም።"
+    }
+  }
+}

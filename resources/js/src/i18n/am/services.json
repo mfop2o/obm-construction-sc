@@ -1,0 +1,18 @@
+{
+  "services": {
+    "title": "አገልግሎቶች | OBM Construction S.C.",
+    "description": "የሕንፃ ግንባታ፣ የሲቪል ስራዎች፣ መንገዶች፣ የምህንድስና እና የፕሮጀክት አስተዳደር አገልግሎቶች።",
+    "breadcrumbHome": "መነሻ",
+    "breadcrumbServices": "አገልግሎቶች",
+    "heroEyebrow": "ምን እንደምንሰራ",
+    "heroTitle": "በምህንድስና ዲሲፕሊን ላይ የተገነባ አቅም።",
+    "heroDescription": "ከአንድ የንግድ ግንባታ እስከ መንገድ መሰረተ ልማት፣ OBM በየደረጃው ከታማኝነት ጋር የተሟላ የግንባታ አገልግሎቶችን ይሰጣል።",
+    "servicesList": "አገልግሎቶቻችን",
+    "approachLabel": "የአሰራር ዘይቤአችን",
+    "approachTitle": "ለእያንዳንዱ ፕሮጀክት ስነ-ስርዓት ያለው አቀራረብ።",
+    "approach1": "የተወሰነ የተጠያቂነት መስመር",
+    "approach2": "የተቀናጀ ዲዛይን እና ምህንድስና",
+    "approach3": "ጥብቅ የደህንነት እና የጥራት ቁጥጥር",
+    "approach4": "ግልጽ ሪፖርት ማቅረብ"
+  }
+}

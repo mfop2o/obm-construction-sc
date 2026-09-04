@@ -1,0 +1,38 @@
+{
+  "admin": {
+    "careers": {
+      "title": "ስራ",
+      "description": "ክፍት የስራ መደቦችን፣ የኩባንያ እሴቶችን እና ጥቅማ ጥቅሞችን ያስተዳድሩ።",
+      "openings": "ክፍት የስራ መደቦች",
+      "values": "እሴቶች",
+      "benefits": "ጥቅማ ጥቅሞች",
+      "closeForm": "ቅጹን ዝጋ",
+      "newOpening": "አዲስ የስራ መደብ",
+      "newValue": "አዲስ እሴት",
+      "newBenefit": "አዲስ ጥቅም",
+      "create": "ፍጠር",
+      "save": "አስቀምጥ",
+      "cancel": "ሰርዝ",
+      "newOpeningForm": "አዲስ የስራ መደብ",
+      "editOpening": "የስራ መደብን አርትዕ",
+      "newValueForm": "አዲስ እሴት",
+      "editValue": "እሴትን አርትዕ",
+      "newBenefitForm": "አዲስ ጥቅም",
+      "editBenefit": "ጥቅምን አርትዕ",
+      "titleField": "ርዕስ",
+      "department": "ክፍል",
+      "location": "ቦታ",
+      "type": "አይነት",
+      "blurb": "አጭር መግለጫ",
+      "textField": "ጽሑፍ",
+      "noOpenings": "ምንም የስራ መደቦች የሉም",
+      "noOpeningsDesc": "የመጀመሪያዎን የስራ መደብ ይፍጠሩ።",
+      "noValues": "ምንም እሴቶች የሉም",
+      "noValuesDesc": "የመጀመሪያዎን የኩባንያ እሴት ይፍጠሩ።",
+      "noBenefits": "ምንም ጥቅማ ጥቅሞች የሉም",
+      "noBenefitsDesc": "የመጀመሪያዎን ጥቅም ይፍጠሩ።",
+      "noMetadata": "ምንም ሜታዳታ የለም",
+      "noText": "ምንም ጽሑፍ የለም"
+    }
+  }
+}

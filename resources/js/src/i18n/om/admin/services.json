@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "services": {
+      "title": "Tajaajiloota",
+      "description": "Ibsa",
+      "closeForm": "Unka cufi",
+      "newService": "Tajaajila haaraa",
+      "createService": "Tajaajila uumi",
+      "editService": "Tajaajila gulaali",
+      "newServiceForm": "Tajaajila haaraa",
+      "titleField": "Mata duree",
+      "overview": "Cuunfaa",
+      "imageKey": "Furtuu Suuraa",
+      "photoRegistry": "Furtuu Suuraa (Galmee suuraa)",
+      "capabilities": "Dandeettiiwwan (sarara tokko irratti tokko)",
+      "noServices": "Tajaajiloonni hin jiran",
+      "noServicesDesc": "Kutaa tajaajilootaa guutuuf tajaajila kee isa jalqabaa uumi.",
+      "noDescription": "Ibsi hin jiru",
+      "create": "Uumi",
+      "save": "Kuusi",
+      "cancel": "Haqi",
+      "createError": "Tajaajila uumuun hin danda'amne. Maaloo irra deebi'ii yaali.",
+      "updateError": "Tajaajila fooyyessuun hin danda'amne. Maaloo irra deebi'ii yaali.",
+      "deleteError": "Tajaajila haquun hin danda'amne. Maaloo irra deebi'ii yaali."
+    }
+  }
+}

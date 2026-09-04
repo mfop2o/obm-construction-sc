@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "title": "Pirojektota | OBM Construction S.C.",
+    "description": "Pirojektota daldalaa, manneen jireenyaa, fi bu'uuraalee misoomaa OBM Construction kutaalee Itiyoophiyaa adda addaatti hojjete daawwadhaa.",
+    "breadcrumbHome": "Galaana",
+    "breadcrumbProjects": "Pirojektota",
+    "heroEyebrow": "Hojii Keenya",
+    "heroTitle": "Kuusaa hojii qulqullina irratti ijaarame.",
+    "heroDescription": "Pirojektota daldalaa, manneen jireenyaa fi bu'uuraalee misoomaa garee OBM dhaan qulqullina injinariingii fi amanamummaadhaan raawwataman daawwadhaa.",
+    "featuredLabel": "Pirojektii Filatamaa",
+    "selectedWork": "Hojiiwwan Filataman",
+    "selectedTitle": "Pirojektota Dhihoo",
+    "allProjects": "Pirojektota Hunda",
+    "showingCount": "Pirojektii {{count}} agarsiisaa jira",
+    "showingCountPlural": "Pirojektota {{count}} agarsiisaa jira",
+    "startProject": "Pirojektii Kee Eegali"
+  }
+}

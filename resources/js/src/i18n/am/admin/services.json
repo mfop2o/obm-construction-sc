@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "services": {
+      "title": "አገልግሎቶች",
+      "description": "መግለጫ",
+      "closeForm": "ቅጹን ዝጋ",
+      "newService": "አዲስ አገልግሎት",
+      "createService": "አገልግሎት ፍጠር",
+      "editService": "አገልግሎት አርትዕ",
+      "newServiceForm": "አዲስ አገልግሎት",
+      "titleField": "ርዕስ",
+      "overview": "አጠቃላይ እይታ",
+      "imageKey": "የምስል ቁልፍ",
+      "photoRegistry": "የምስል ቁልፍ (የፎቶ መዝገብ)",
+      "capabilities": "አቅም (በየመስመሩ አንድ)",
+      "noServices": "ምንም አገልግሎቶች የሉም",
+      "noServicesDesc": "የአገልግሎቶች ክፍሉን ለመሙላት የመጀመሪያውን አገልግሎት ይፍጠሩ።",
+      "noDescription": "ምንም መግለጫ የለም",
+      "create": "ፍጠር",
+      "save": "አስቀምጥ",
+      "cancel": "ሰርዝ",
+      "createError": "አገልግሎት መፍጠር አልተሳካም። እባክዎ እንደገና ይሞክሩ።",
+      "updateError": "አገልግሎትን ማዘመን አልተሳካም። እባክዎ እንደገና ይሞክሩ።",
+      "deleteError": "አገልግሎትን መሰረዝ አልተሳካም። እባክዎ እንደገና ይሞክሩ።"
+    }
+  }
+}

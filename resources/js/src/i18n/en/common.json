@@ -1,0 +1,32 @@
+{
+  "brand": {
+    "short": "OBM",
+    "full": "OBM Construction S.C.",
+    "tagline": "Engineering excellence"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "careers": "Careers",
+    "contact": "Contact",
+    "startProject": "Start a Project",
+    "viewWork": "View Our Work",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu"
+  },
+  "footer": {
+    "company": "Company",
+    "services": "Services",
+    "contact": "Contact",
+    "buildingConstruction": "Building Construction",
+    "civilWorks": "Civil Works",
+    "roadsInfrastructure": "Roads & Infrastructure",
+    "renovation": "Renovation",
+    "addisAbaba": "Addis Ababa, Ethiopia",
+    "copyright": "© {{year}} {{name}}. All rights reserved.",
+    "registration": "Registered in the Federal Democratic Republic of Ethiopia",
+    "description": "{{name}} is an Ethiopian construction company delivering safe, quality and on-time projects through engineering excellence and integrity."
+  }
+}

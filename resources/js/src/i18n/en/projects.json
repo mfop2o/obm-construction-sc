@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "title": "Projects | OBM Construction S.C.",
+    "description": "Explore commercial, residential, mixed-use and infrastructure projects delivered by OBM Construction across Ethiopia.",
+    "breadcrumbHome": "Home",
+    "breadcrumbProjects": "Projects",
+    "heroEyebrow": "Our Work",
+    "heroTitle": "A portfolio built on quality.",
+    "heroDescription": "Explore commercial, residential and infrastructure projects delivered by the OBM team with engineering excellence and integrity.",
+    "featuredLabel": "Featured Project",
+    "selectedWork": "Selected Work",
+    "selectedTitle": "Recent projects",
+    "allProjects": "All projects",
+    "showingCount": "Showing {{count}} project",
+    "showingCountPlural": "Showing {{count}} projects",
+    "startProject": "Start Your Project"
+  }
+}

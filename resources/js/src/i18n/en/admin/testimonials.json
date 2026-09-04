@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "testimonials": {
+      "title": "Testimonials",
+      "description": "Client quotes featured across the public site.",
+      "newTestimonial": "New testimonial",
+      "createTestimonial": "Create testimonial",
+      "editTestimonial": "Edit testimonial",
+      "newTestimonialForm": "New testimonial",
+      "quote": "Quote",
+      "name": "Name",
+      "role": "Role",
+      "company": "Company",
+      "featured": "Featured",
+      "update": "Update",
+      "create": "Create",
+      "cancel": "Cancel",
+      "feature": "Feature",
+      "unfeature": "Unfeature",
+      "noTestimonials": "No testimonials yet",
+      "noTestimonialsDesc": "Add your first testimonial to build social proof on the public site.",
+      "saveError": "Failed to save testimonial.",
+      "featuredError": "Failed to update featured status.",
+      "deleteError": "Failed to delete testimonial."
+    }
+  }
+}

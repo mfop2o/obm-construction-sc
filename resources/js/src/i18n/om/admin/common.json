@@ -1,0 +1,39 @@
+{
+  "admin": {
+    "systemName": "Sirna Qabiyyee",
+    "adminLabel": "Bulchaa",
+    "mobileHeader": "Sirna Qabiyyee OBM",
+    "nav": {
+      "dashboard": "Daashboordii",
+      "projects": "Pirojektota (Hojii)",
+      "services": "Tajaajiloota",
+      "testimonials": "Dhugaa Ba'umsa",
+      "homeStats": "Istaatistiksii Galaanaa",
+      "about": "Waa'ee keenya",
+      "careers": "Carraa Hojii",
+      "contactInfo": "Odeeffannoo Qunnamtii & Waajjiraalee",
+      "contacts": "Ergaawwan (Qunnamtiiwwan)"
+    },
+    "settings": {
+      "title": "Sajoo",
+      "description": "Ibsa profaayilii bulchaa fi iccitii kee bulchi.",
+      "profileDetails": "Ibsa profaayilii",
+      "changePassword": "Iccitii jijjiiri",
+      "passwordDescription": "Akkaawuntii kanaaf iccitii haaraa qopheessi. Yoo xiqqaate arfiilee 8.",
+      "name": "Maqaa",
+      "email": "Iimeelii",
+      "newPassword": "Iccitii haaraa",
+      "confirmPassword": "Iccitii haaraa mirkaneessi",
+      "saving": "Kuusaa jira...",
+      "saved": "Kuufameera.",
+      "save": "Kuusi",
+      "changePasswordBtn": "Iccitii jijjiiri",
+      "profileError": "Ibsa profaayilii kuusuun hin danda'amne.",
+      "passwordMismatch": "Iccitiin haaraan fi mirkaneessi wal hin siman.",
+      "passwordTooShort": "Iccitiin haaraan yoo xiqqaate arfiilee 8 ta'uu qaba.",
+      "passwordError": "Iccitii jijjiiruun hin danda'amne."
+    },
+    "signOut": "Ba'i",
+    "loading": "Qabiyyee fe'aa jira..."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "admin": {
+    "login": {
+      "title": "የOBM Construction ስርዓት",
+      "description": "ጣቢያውን ለማስተዳደር ይግቡ",
+      "email": "ኢሜል",
+      "password": "የይለፍ ቃል",
+      "emailPlaceholder": "admin@obm.local",
+      "passwordPlaceholder": "••••••••",
+      "enterCredentials": "ኢሜልዎን እና የይለፍ ቃልዎን ያስገቡ።",
+      "invalidCredentials": "የተሳሳተ መረጃ ወይም የአውታረ መረብ ስህተት። እባክዎ እንደገና ይሞክሩ።",
+      "signingIn": "በመግባት ላይ...",
+      "signIn": "ይግቡ",
+      "defaultHint": "ነባሪ: admin@obm.local · password (ከመጀመሪያው መግቢያ በኋላ ይቀይሩ)"
+    }
+  }
+}

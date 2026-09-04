@@ -1,0 +1,21 @@
+{
+  "admin": {
+    "dashboard": {
+      "title": "ዳሽቦርድ",
+      "description": "የይዘት ስርዓቱ አጠቃላይ እይታ።",
+      "manageProjects": "ፕሮጀክቶችን ያስተዳድሩ",
+      "projects": "ፕሮጀክቶች",
+      "services": "አገልግሎቶች",
+      "testimonials": "የምስክር ወረቀቶች",
+      "openings": "ክፍት የስራ መደቦች",
+      "homeStats": "የመነሻ ስታቲስቲክስ",
+      "milestones": "ጉልህ ክንውኖች",
+      "unreadMessages": "ያልተነበቡ መልዕክቶች",
+      "projectsByCategory": "ፕሮጀክቶች በምድብ",
+      "featuredProject": "ተመራጭ ፕሮጀክት",
+      "viewAll": "ሁሉንም ይመልከቱ",
+      "noFeatured": "እስካሁን ምንም ተመራጭ ፕሮጀክት አልተዘጋጀም።",
+      "footerNote": "ሁሉም ይዘት በMySQL ጎታ ውስጥ ይቀመጣል እና በLaravel API በኩል ይቀርባል። ለውጦች ወዲያውኑ ይታያሉ።"
+    }
+  }
+}

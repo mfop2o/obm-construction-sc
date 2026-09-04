@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "data": {
+      "title": "Data & Reset",
+      "description": "Export a backup of your content, import a backup, or restore the original seed data. All content is stored in the database.",
+      "storage": "Storage",
+      "storageDesc": "Projects are stored in the MySQL database via the Laravel API. The database is the single source of truth for the public /projects pages and this admin system. You currently have {{count}} projects.",
+      "export": "Export",
+      "exportDesc": "Download the current projects as a JSON backup.",
+      "import": "Import",
+      "importDesc": "Replace all projects from an exported JSON backup. This overwrites the current content in the database.",
+      "resetToSeed": "Reset to seed",
+      "resetDesc": "Permanently discard your saved changes and restore the original placeholder projects in the database. This cannot be undone.",
+      "exportBtn": "Export projects JSON",
+      "importing": "Importing…",
+      "chooseFile": "Choose JSON file",
+      "resetting": "Resetting…",
+      "yesReset": "Yes, reset everything",
+      "cancel": "Cancel",
+      "resetContent": "Reset content",
+      "imported": "Imported {{count}} projects.",
+      "invalidJson": "That file is not valid JSON.",
+      "contentReset": "Content reset to the original seed projects.",
+      "resetFailed": "Could not reset content."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "admin": {
+    "dashboard": {
+      "title": "Daashboordii",
+      "description": "Cuunfaa sirna qabiyyee.",
+      "manageProjects": "Pirojektota bulchi",
+      "projects": "Pirojektota",
+      "services": "Tajaajiloota",
+      "testimonials": "Dhugaa Ba'umsa",
+      "openings": "Iddoowwan Banaa",
+      "homeStats": "Istaatistiksii Galaanaa",
+      "milestones": "Milkaayinoota",
+      "unreadMessages": "Ergaawwan dubbifamuu qaban",
+      "projectsByCategory": "Pirojektota ramaddidhaan",
+      "featuredProject": "Pirojektii Filatamaa",
+      "viewAll": "Hunda ilaali",
+      "noFeatured": "Pirojektiin filatamaan hanga ammaatti hin qophoofne.",
+      "footerNote": "Qabiyyeen hundi kuusaa deetaa MySQL keessatti kuufamee API Laravel tiin dhiyaata. Jijjiiramoonni battalumatti mul'atu."
+    }
+  }
+}

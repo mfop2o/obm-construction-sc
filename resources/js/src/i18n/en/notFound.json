@@ -1,0 +1,11 @@
+{
+  "notFound": {
+    "title": "Page Not Found | OBM Construction S.C.",
+    "description": "The page you were looking for could not be found. Return to the OBM Construction homepage.",
+    "errorLabel": "Error 404",
+    "heading": "Nothing to build here.",
+    "descriptionText": "The page you're looking for doesn't exist or has been moved. Let's get you back on solid ground.",
+    "backHome": "Back to Home",
+    "viewWork": "View Our Work"
+  }
+}

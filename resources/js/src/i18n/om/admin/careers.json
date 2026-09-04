@@ -1,0 +1,38 @@
+{
+  "admin": {
+    "careers": {
+      "title": "Carraa Hojii",
+      "description": "Iddoowwan hojii banaa, duudhaalee dhaabbatichaa fi faayidaalee bulchi.",
+      "openings": "Iddoowwan Banaa",
+      "values": "Duudhaalee",
+      "benefits": "Faayidaalee",
+      "closeForm": "Unka cufi",
+      "newOpening": "Iddoo banaa haaraa",
+      "newValue": "Duudhaa haaraa",
+      "newBenefit": "Faayidaa haaraa",
+      "create": "Uumi",
+      "save": "Kuusi",
+      "cancel": "Haqi",
+      "newOpeningForm": "Iddoo banaa haaraa",
+      "editOpening": "Iddoo banaa gulaali",
+      "newValueForm": "Duudhaa haaraa",
+      "editValue": "Duudhaa gulaali",
+      "newBenefitForm": "Faayidaa haaraa",
+      "editBenefit": "Faayidaa gulaali",
+      "titleField": "Mata duree",
+      "department": "Kutaa",
+      "location": "Iddoo",
+      "type": "Akaakuu",
+      "blurb": "Ibsa gabaabaa",
+      "textField": "Barreeffama",
+      "noOpenings": "Iddoowwan hojii banaa hin jiran",
+      "noOpeningsDesc": "Iddoo hojii banaa kee isa jalqabaa uumi.",
+      "noValues": "Duudhaaleen hin jiran",
+      "noValuesDesc": "Duudhaa dhaabbataa kee isa jalqabaa uumi.",
+      "noBenefits": "Faayidaaleen hin jiran",
+      "noBenefitsDesc": "Faayidaa kee isa jalqabaa uumi.",
+      "noMetadata": "Meetaadaataan hin jiru",
+      "noText": "Barreeffamni hin jiru"
+    }
+  }
+}

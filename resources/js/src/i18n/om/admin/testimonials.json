@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "testimonials": {
+      "title": "Dhugaa Ba'umsa",
+      "description": "Yaada maamiltootaa marsariitii irratti dhiyaatan.",
+      "newTestimonial": "Dhugaa ba'umsa haaraa",
+      "createTestimonial": "Dhugaa ba'umsa uumi",
+      "editTestimonial": "Dhugaa ba'umsa gulaali",
+      "newTestimonialForm": "Dhugaa ba'umsa haaraa",
+      "quote": "Yaada",
+      "name": "Maqaa",
+      "role": "Gahee",
+      "company": "Dhaabbata",
+      "featured": "Filatamaa",
+      "update": "Fooyyessi",
+      "create": "Uumi",
+      "cancel": "Haqi",
+      "feature": "Adda baasi",
+      "unfeature": "Adda baasuu dhiisi",
+      "noTestimonials": "Dhugaa ba'umsi hin jiru",
+      "noTestimonialsDesc": "Ragaa hawaasummaa ijaaruuf dhugaa ba'umsa kee isa jalqabaa dabali.",
+      "saveError": "Dhugaa ba'umsa kuusuun hin danda'amne.",
+      "featuredError": "Haala filatamaa fooyyessuun hin danda'amne.",
+      "deleteError": "Dhugaa ba'umsa haquun hin danda'amne."
+    }
+  }
+}

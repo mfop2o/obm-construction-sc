@@ -1,0 +1,21 @@
+{
+  "admin": {
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Overview of the dynamic content system.",
+      "manageProjects": "Manage projects",
+      "projects": "Projects",
+      "services": "Services",
+      "testimonials": "Testimonials",
+      "openings": "Openings",
+      "homeStats": "Home stats",
+      "milestones": "Milestones",
+      "unreadMessages": "Unread messages",
+      "projectsByCategory": "Projects by category",
+      "featuredProject": "Featured project",
+      "viewAll": "View all",
+      "noFeatured": "No featured project set yet.",
+      "footerNote": "All content is stored in the MySQL database and served via the Laravel API. Changes go live instantly."
+    }
+  }
+}

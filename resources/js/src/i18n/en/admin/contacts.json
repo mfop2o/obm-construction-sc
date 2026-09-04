@@ -1,0 +1,16 @@
+{
+  "admin": {
+    "contacts": {
+      "title": "Contacts (Messages)",
+      "description": "Incoming form submissions. Mark read/unread or delete.",
+      "unread": "Unread",
+      "read": "Read",
+      "markUnread": "Mark unread",
+      "markRead": "Mark read",
+      "noMessages": "No messages yet",
+      "noMessagesDesc": "Contact form submissions will appear here once visitors send a message.",
+      "deleteError": "Failed to delete contact.",
+      "readError": "Failed to update read status."
+    }
+  }
+}

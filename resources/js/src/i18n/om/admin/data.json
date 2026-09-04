@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "data": {
+      "title": "Deetaa fi Bakka Duraatti Deebisuu",
+      "description": "Qabiyyee kee eeggannoodhaaf gara alaatti ergi, eeggannoo irraa as gali yookiin deetaa jalqabaa bakka duraatti deebisi. Qabiyyeen hundi kuusaa deetaa keessatti kuufameera.",
+      "storage": "Kuusaa",
+      "storageDesc": "Pirojektoonni API Laravel tiin kuusaa deetaa MySQL keessatti kuufamu. Kuusaan deetaa fuulota /pirojektota uummataa fi sirna bulchiinsaa kanaaf madda dhugaa tokkicha. Amma pirojektota {{count}} qabda.",
+      "export": "Gara alaatti ergi",
+      "exportDesc": "Pirojektota ammaa akka eeggannoo JSON tti buufadhu.",
+      "import": "As gali",
+      "importDesc": "Pirojektota hunda eeggannoo JSON gara alaatti ergame irraa bakka buusi. Kun qabiyyee ammaa kuusaa deetaa keessa jiru ni balleessa.",
+      "resetToSeed": "Gara deetaa jalqabaatti deebisi",
+      "resetDesc": "Jijjiiramoota goote dhaabbataatti balleessuun pirojektota jalqabaa kuusaa deetaa keessatti deebisi. Gocha kana duubatti deebisuun hin danda'amu.",
+      "exportBtn": "Pirojektota JSON gara alaatti ergi",
+      "importing": "As galaa jira...",
+      "chooseFile": "Faayilii JSON filadhu",
+      "resetting": "Bakka duraatti deebisaa jira...",
+      "yesReset": "Eeyyee, wanta hunda bakka duraatti deebisi",
+      "cancel": "Haqi",
+      "resetContent": "Qabiyyee bakka duraatti deebisi",
+      "imported": "Pirojektoonni {{count}} as galaniiru.",
+      "invalidJson": "Faayiliin sun JSON sirrii miti.",
+      "contentReset": "Qabiyyeen gara pirojektota jalqabaatti deebifameera.",
+      "resetFailed": "Qabiyyee bakka duraatti deebisuun hin danda'amne."
+    }
+  }
+}

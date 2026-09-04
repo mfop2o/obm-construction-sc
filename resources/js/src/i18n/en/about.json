@@ -1,0 +1,23 @@
+{
+  "about": {
+    "title": "About Us | OBM Construction S.C.",
+    "description": "The story, mission, vision, values, leadership and milestones of OBM Construction S.C. — an Ethiopian construction company.",
+    "breadcrumbHome": "Home",
+    "breadcrumbAbout": "About",
+    "heroEyebrow": "Who We Are",
+    "heroTitle": "A partner you can build on.",
+    "heroDescription": "OBM Construction S.C. — an Ethiopian construction company built on engineering discipline, safety and integrity.",
+    "storyEyebrow": "Our Story",
+    "storyTitle": "Built on discipline, delivered with integrity.",
+    "missionLabel": "Our Mission",
+    "visionLabel": "Our Vision",
+    "valuesEyebrow": "Core Values",
+    "valuesTitle": "Principles that hold every build together.",
+    "valuesDescription": "Our values shape how we plan, how we build and how we treat every client and colleague.",
+    "leadershipEyebrow": "Leadership",
+    "leadershipTitle": "The team behind the build.",
+    "leadershipDescription": "Led by experienced engineers and construction professionals.",
+    "milestonesEyebrow": "Milestones",
+    "milestonesTitle": "Key moments in our journey."
+  }
+}

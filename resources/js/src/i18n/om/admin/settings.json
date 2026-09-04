@@ -1,0 +1,23 @@
+{
+  "admin": {
+    "settings": {
+      "title": "Sajoo",
+      "description": "Ibsa profaayilii bulchaa fi iccitii kee bulchi.",
+      "profileDetails": "Ibsa profaayilii",
+      "changePassword": "Iccitii jijjiiri",
+      "passwordDescription": "Akkaawuntii kanaaf iccitii haaraa qopheessi. Yoo xiqqaate arfiilee 8.",
+      "name": "Maqaa",
+      "email": "Iimeelii",
+      "newPassword": "Iccitii haaraa",
+      "confirmPassword": "Iccitii haaraa mirkaneessi",
+      "saving": "Kuusaa jira...",
+      "saved": "Kuufameera.",
+      "save": "Kuusi",
+      "changePasswordBtn": "Iccitii jijjiiri",
+      "profileError": "Ibsa profaayilii kuusuun hin danda'amne.",
+      "passwordMismatch": "Iccitiin haaraan fi mirkaneessi wal hin siman.",
+      "passwordTooShort": "Iccitiin haaraan yoo xiqqaate arfiilee 8 ta'uu qaba.",
+      "passwordError": "Iccitii jijjiiruun hin danda'amne."
+    }
+  }
+}

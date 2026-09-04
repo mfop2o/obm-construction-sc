@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "title": "ፕሮጀክቶች | OBM Construction S.C.",
+    "description": "በመላው ኢትዮጵያ በOBM የተሰሩ የንግድ፣ የመኖሪያ፣ እና የመሠረተ ልማት ፕሮጀክቶችን ያስሱ።",
+    "breadcrumbHome": "መነሻ",
+    "breadcrumbProjects": "ፕሮጀክቶች",
+    "heroEyebrow": "ስራዎቻችን",
+    "heroTitle": "በጥራት የተገነባ ፖርትፎሊዮ።",
+    "heroDescription": "በOBM ቡድን በምህንድስና ልህቀት እና በታማኝነት የተጠናቀቁ የንግድ፣ የመኖሪያ እና የመሠረተ ልማት ፕሮጀክቶችን ያስሱ።",
+    "featuredLabel": "ተመራጭ ፕሮጀክት",
+    "selectedWork": "የተመረጡ ስራዎች",
+    "selectedTitle": "የቅርብ ጊዜ ፕሮጀክቶች",
+    "allProjects": "ሁሉም ፕሮጀክቶች",
+    "showingCount": "{{count}} ፕሮጀክት በማሳየት ላይ",
+    "showingCountPlural": "{{count}} ፕሮጀክቶችን በማሳየት ላይ",
+    "startProject": "ፕሮጀክትዎን ይጀምሩ"
+  }
+}

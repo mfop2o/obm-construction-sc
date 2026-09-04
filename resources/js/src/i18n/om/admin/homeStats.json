@@ -1,0 +1,25 @@
+{
+  "admin": {
+    "homeStats": {
+      "title": "Istaatistiksii Galaanaa",
+      "description": "Kutaa istaatistiksii fuula duraa irratti mul'atu.",
+      "closeForm": "Unka cufi",
+      "newStat": "Istaatistiksii haaraa",
+      "createStat": "Istaatistiksii uumi",
+      "editStat": "Istaatistiksii gulaali",
+      "newStatForm": "Istaatistiksii haaraa",
+      "labelField": "Moggaasa",
+      "value": "Gatii",
+      "suffix": "Dabalata",
+      "noStats": "Istaatistiksiin hin jiru",
+      "noStatsDesc": "Kutaa fuula duraa guutuuf istaatistiksii kee isa jalqabaa uumi.",
+      "create": "Uumi",
+      "save": "Kuusi",
+      "cancel": "Haqi",
+      "numberError": "Gatiin lakkoofsa sirrii ta'uu qaba.",
+      "createError": "Istaatistiksii uumuun hin danda'amne.",
+      "updateError": "Istaatistiksii fooyyessuun hin danda'amne.",
+      "deleteError": "Istaatistiksii haquun hin danda'amne."
+    }
+  }
+}

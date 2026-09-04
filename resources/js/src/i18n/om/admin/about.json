@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "about": {
+      "title": "Waa'ee Keenya",
+      "description": "Ergama fi mul'ata, duudhaalee ijoo, milkaayinoota",
+      "missionVision": "Ergama fi Mul'ata",
+      "coreValues": "Duudhaalee Ijoo",
+      "milestones": "Milkaayinoota",
+      "mission": "Ergama",
+      "vision": "Mul'ata",
+      "titleField": "Mata duree",
+      "descriptionField": "Ibsa",
+      "year": "Bara",
+      "newValue": "Duudhaa haaraa",
+      "newMilestone": "Milkaayina haaraa",
+      "save": "Kuusi",
+      "cancel": "Haqi",
+      "addValue": "Duudhaa dabali",
+      "addMilestone": "Milkaayina dabali",
+      "saved": "Kuufameera",
+      "saveError": "Kuusuun hin danda'amne",
+      "updateError": "Fooyyessuun hin danda'amne",
+      "createError": "Uumuun hin danda'amne",
+      "deleteError": "Haquun hin danda'amne"
+    }
+  }
+}

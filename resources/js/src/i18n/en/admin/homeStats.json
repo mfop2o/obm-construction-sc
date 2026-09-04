@@ -1,0 +1,28 @@
+{
+  "admin": {
+    "homeStats": {
+      "title": "Home Stats",
+      "description": "The stats band displayed on the homepage.",
+      "closeForm": "Close form",
+      "newStat": "New stat",
+      "createStat": "Create stat",
+      "editStat": "Edit stat",
+      "newStatForm": "New stat",
+      "labelField": "Label",
+      "labelHint": "e.g. Years of Experience, Projects Completed",
+      "value": "Value",
+      "valueHint": "Must be a number",
+      "suffix": "Suffix",
+      "suffixHint": "Optional suffix, e.g. +, %, M",
+      "noStats": "No stats yet",
+      "noStatsDesc": "Create your first stat to populate the homepage band.",
+      "create": "Create",
+      "save": "Save",
+      "cancel": "Cancel",
+      "numberError": "Value must be a valid number.",
+      "createError": "Failed to create stat.",
+      "updateError": "Failed to update stat.",
+      "deleteError": "Failed to delete stat."
+    }
+  }
+}

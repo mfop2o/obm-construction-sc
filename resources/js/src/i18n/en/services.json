@@ -1,0 +1,18 @@
+{
+  "services": {
+    "title": "Services | OBM Construction S.C.",
+    "description": "Building construction, civil & infrastructure, roads, engineering & project management, renovation and design-build services from OBM.",
+    "breadcrumbHome": "Home",
+    "breadcrumbServices": "Services",
+    "heroEyebrow": "What We Do",
+    "heroTitle": "Capabilities built on engineering discipline.",
+    "heroDescription": "From a single commercial build to road infrastructure and full turnkey delivery, OBM provides end-to-end construction services with integrity at every stage.",
+    "servicesList": "Our Services",
+    "approachLabel": "How We Work",
+    "approachTitle": "A disciplined approach to every engagement.",
+    "approach1": "Fixed line of accountability",
+    "approach2": "Integrated design & engineering",
+    "approach3": "Strict safety & quality control",
+    "approach4": "Transparent reporting"
+  }
+}

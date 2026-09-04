@@ -1,0 +1,25 @@
+{
+  "admin": {
+    "homeStats": {
+      "title": "የመነሻ ስታቲስቲክስ",
+      "description": "በመነሻ ገጹ ላይ የሚታየው የስታቲስቲክስ ክፍል።",
+      "closeForm": "ቅጹን ዝጋ",
+      "newStat": "አዲስ ስታቲስቲክስ",
+      "createStat": "ስታቲስቲክስ ፍጠር",
+      "editStat": "ስታቲስቲክስ አርትዕ",
+      "newStatForm": "አዲስ ስታቲስቲክስ",
+      "labelField": "መለያ",
+      "value": "እሴት",
+      "suffix": "ቅጥያ",
+      "noStats": "ምንም ስታቲስቲክስ የለም",
+      "noStatsDesc": "የመነሻ ገጹን ባንድ ለመሙላት የመጀመሪያዎን ስታቲስቲክስ ይፍጠሩ።",
+      "create": "ፍጠር",
+      "save": "አስቀምጥ",
+      "cancel": "ሰርዝ",
+      "numberError": "እሴቱ ትክክለኛ ቁጥር መሆን አለበት።",
+      "createError": "ስታቲስቲክስን መፍጠር አልተሳካም።",
+      "updateError": "ስታቲስቲክስን ማዘመን አልተሳካም።",
+      "deleteError": "ስታቲስቲክስን መሰረዝ አልተሳካም።"
+    }
+  }
+}

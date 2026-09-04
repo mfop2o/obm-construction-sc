@@ -1,0 +1,31 @@
+{
+  "brand": {
+    "short": "OBM",
+    "full": "OBM Construction S.C.",
+    "tagline": "የምህንድስና ልህቀት"
+  },
+  "nav": {
+    "home": "መነሻ",
+    "about": "ስለ እኛ",
+    "services": "አገልግሎቶች",
+    "projects": "ፕሮጀክቶች",
+    "careers": "ስራ",
+    "contact": "ያግኙን",
+    "startProject": "ፕሮጀክት ጀምር",
+    "viewWork": "ስራዎቻችንን ይመልከቱ",
+    "closeMenu": "ምናሌ ዝጋ",
+    "openMenu": "ምናሌ ክፈት"
+  },
+  "footer": {
+    "company": "ኩባንያ",
+    "services": "አገልግሎቶች",
+    "contact": "ያግኙን",
+    "buildingConstruction": "የሕንፃ ግንባታ",
+    "civilWorks": "የሲቪል ስራዎች",
+    "roadsInfrastructure": "መንገዶች እና መሰረተ ልማት",
+    "renovation": "እድሳት",
+    "addisAbaba": "አዲስ አበባ፣ ኢትዮጵያ",
+    "copyright": "© {{year}} {{name}}. መብቱ በህግ የተጠበቀ ነው።",
+    "registration": "በኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ የተመዘገበ"
+  }
+}

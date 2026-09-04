@@ -1,0 +1,11 @@
+{
+  "notFound": {
+    "title": "ገጹ አልተገኘም | OBM Construction S.C.",
+    "description": "የሚፈልጉት ገጽ አልተገኘም። ወደ መነሻ ገጽ ይመለሱ።",
+    "errorLabel": "ስህተት 404",
+    "heading": "እዚህ ምንም የምንገነባው ነገር የለም።",
+    "descriptionText": "የሚፈልጉት ገጽ የለም ወይም ተንቀሳቅሷል። ወደ ትክክለኛው መንገድ እንመልስዎ።",
+    "backHome": "ወደ መነሻ ይመለሱ",
+    "viewWork": "ስራዎቻችንን ይመልከቱ"
+  }
+}

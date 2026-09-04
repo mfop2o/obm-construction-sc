@@ -1,0 +1,21 @@
+{
+  "admin": {
+    "systemName": "Content System",
+    "adminLabel": "Admin",
+    "mobileHeader": "OBM Content System",
+    "nav": {
+      "dashboard": "Dashboard",
+      "projects": "Projects (Work)",
+      "services": "Services",
+      "testimonials": "Testimonials",
+      "homeStats": "Home Stats",
+      "about": "About",
+      "careers": "Careers",
+      "contactInfo": "Contact Info & Offices",
+      "contacts": "Contacts (Messages)"
+    },
+    "settings": "Settings",
+    "signOut": "Sign out",
+    "loading": "Loading content…"
+  }
+}

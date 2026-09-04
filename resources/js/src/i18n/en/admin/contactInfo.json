@@ -1,0 +1,30 @@
+{
+  "admin": {
+    "contactInfo": {
+      "title": "Contact Info & Offices",
+      "description": "Manage company contact details and office locations.",
+      "companyDetails": "Company Contact Details",
+      "offices": "Offices",
+      "phone": "Phone",
+      "email": "Email",
+      "addressLine1": "Address line 1",
+      "addressLine2": "Address line 2",
+      "nameField": "Name",
+      "address": "Address",
+      "city": "City",
+      "editOffice": "Edit office",
+      "newOffice": "New office",
+      "saving": "Saving…",
+      "save": "Save",
+      "update": "Update",
+      "create": "Create",
+      "cancel": "Cancel",
+      "addOffice": "Add office",
+      "saved": "Saved.",
+      "noOffices": "No offices yet",
+      "settingsError": "Failed to save contact settings.",
+      "officeError": "Failed to save office.",
+      "deleteError": "Failed to delete office."
+    }
+  }
+}

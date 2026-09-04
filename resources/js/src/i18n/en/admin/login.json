@@ -1,0 +1,17 @@
+{
+  "admin": {
+    "login": {
+      "title": "OBM Construction System",
+      "description": "Sign in to manage the site",
+      "email": "Email",
+      "password": "Password",
+      "emailPlaceholder": "admin@obm.local",
+      "passwordPlaceholder": "••••••••",
+      "enterCredentials": "Enter your email and password.",
+      "invalidCredentials": "Invalid credentials or a network error. Please try again.",
+      "signingIn": "Signing in…",
+      "signIn": "Sign in",
+      "defaultHint": "Default: admin@obm.local · password (change after first login)"
+    }
+  }
+}

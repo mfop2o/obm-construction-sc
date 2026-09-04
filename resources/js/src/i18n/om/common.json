@@ -1,0 +1,31 @@
+{
+  "brand": {
+    "short": "OBM",
+    "full": "OBM Construction S.C.",
+    "tagline": "Dandeettii Injinariingii"
+  },
+  "nav": {
+    "home": "Seensa",
+    "about": "Waa'ee keenya",
+    "services": "Tajaajila",
+    "projects": "Pirojektota",
+    "careers": "Carraa Hojii",
+    "contact": "Nu Qunnamaa",
+    "startProject": "Pirojektii Eegali",
+    "viewWork": "Hojii Keenya Ilaalaa",
+    "closeMenu": "Baafata Cufi",
+    "openMenu": "Baafata Bani"
+  },
+  "footer": {
+    "company": "Dhaabbata",
+    "services": "Tajaajila",
+    "contact": "Nu Qunnamaa",
+    "buildingConstruction": "Ijaarsa Gamoowwanii",
+    "civilWorks": "Hojiiwwan Siivilii",
+    "roadsInfrastructure": "Daandiiwwan fi Bu'uuraalee Misoomaa",
+    "renovation": "Haaromsa",
+    "addisAbaba": "Finfinnee, Itiyoophiyaa",
+    "copyright": "© {{year}} {{name}}. Mirgi hunduu seeraan eegamaadha.",
+    "registration": "Rippabiliika Dimookiraatawaa Federaalawaa Itiyoophiyaatti kan galmaa'e"
+  }
+}

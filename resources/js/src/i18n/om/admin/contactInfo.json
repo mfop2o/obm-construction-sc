@@ -1,0 +1,30 @@
+{
+  "admin": {
+    "contactInfo": {
+      "title": "Odeeffannoo Qunnamtii & Waajjiraalee",
+      "description": "Ibsa qunnamtii dhaabbatichaa fi iddoowwan waajjiraa bulchi.",
+      "companyDetails": "Ibsa Qunnamtii Dhaabbataa",
+      "offices": "Waajjiraalee",
+      "phone": "Bilbila",
+      "email": "Iimeelii",
+      "addressLine1": "Sarara teessoo 1",
+      "addressLine2": "Sarara teessoo 2",
+      "nameField": "Maqaa",
+      "address": "Teessoo",
+      "city": "Magaalaa",
+      "editOffice": "Waajjira gulaali",
+      "newOffice": "Waajjira haaraa",
+      "saving": "Kuusaa jira...",
+      "save": "Kuusi",
+      "update": "Fooyyessi",
+      "create": "Uumi",
+      "cancel": "Haqi",
+      "addOffice": "Waajjira dabali",
+      "saved": "Kuufameera.",
+      "noOffices": "Waajjiraaleen hin jiran",
+      "settingsError": "Sajoo qunnamtii kuusuun hin danda'amne.",
+      "officeError": "Waajjira kuusuun hin danda'amne.",
+      "deleteError": "Waajjira haquun hin danda'amne."
+    }
+  }
+}

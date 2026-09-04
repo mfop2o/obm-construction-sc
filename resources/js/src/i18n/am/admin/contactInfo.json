@@ -1,0 +1,30 @@
+{
+  "admin": {
+    "contactInfo": {
+      "title": "የእውቂያ መረጃ እና ቢሮዎች",
+      "description": "የኩባንያውን የእውቂያ ዝርዝሮች እና የቢሮ አካባቢዎችን ያስተዳድሩ።",
+      "companyDetails": "የኩባንያ እውቂያ ዝርዝሮች",
+      "offices": "ቢሮዎች",
+      "phone": "ስልክ",
+      "email": "ኢሜል",
+      "addressLine1": "አድራሻ መስመር 1",
+      "addressLine2": "አድራሻ መስመር 2",
+      "nameField": "ስም",
+      "address": "አድራሻ",
+      "city": "ከተማ",
+      "editOffice": "ቢሮን አርትዕ",
+      "newOffice": "አዲስ ቢሮ",
+      "saving": "በማስቀመጥ ላይ...",
+      "save": "አስቀምጥ",
+      "update": "አዘምን",
+      "create": "ፍጠር",
+      "cancel": "ሰርዝ",
+      "addOffice": "ቢሮ አክል",
+      "saved": "ተቀምጧል።",
+      "noOffices": "ምንም ቢሮዎች የሉም",
+      "settingsError": "የእውቂያ ቅንብሮችን ማስቀመጥ አልተሳካም።",
+      "officeError": "ቢሮን ማስቀመጥ አልተሳካም።",
+      "deleteError": "ቢሮን መሰረዝ አልተሳካም።"
+    }
+  }
+}

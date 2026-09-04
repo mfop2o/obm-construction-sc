@@ -1,0 +1,14 @@
+{
+  "admin": {
+    "projects": {
+      "title": "Pirojektota (Hojii)",
+      "description": "Pirojektota uumi, gulaali, fi adda baasii agarsiisi. Jijjiiramoonni battalumatti marsariitii irratti mul'atu.",
+      "newProject": "Pirojektii haaraa",
+      "createProject": "Pirojektii uumi",
+      "noProjects": "Pirojektoonni hin jiran",
+      "noProjectsDesc": "Kutaa Hojii ijaaruu eegaluuf pirojektii kee isa jalqabaa uumi.",
+      "featured": "Filatamaa",
+      "feature": "Adda baasi"
+    }
+  }
+}

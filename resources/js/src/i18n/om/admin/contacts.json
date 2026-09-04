@@ -1,0 +1,16 @@
+{
+  "admin": {
+    "contacts": {
+      "title": "Ergaawwan (Qunnamtiiwwan)",
+      "description": "Unkaalee qunnamtii guutaman. Akka dubbifametti/hindubbifamnetti mallatteessi yookiin haqi.",
+      "unread": "Hin dubbifamne",
+      "read": "Dubbifameera",
+      "markUnread": "Akka hin dubbifamnetti mallatteessi",
+      "markRead": "Akka dubbifamettti mallatteessi",
+      "noMessages": "Ergaawwan hin jiran",
+      "noMessagesDesc": "Yommuu daawwattoonni ergaa ergan unkaaleen qunnamtii guutaman asitti mul'atu.",
+      "deleteError": "Qunnamtii haquun hin danda'amne.",
+      "readError": "Haala dubbifamuu fooyyessuun hin danda'amne."
+    }
+  }
+}

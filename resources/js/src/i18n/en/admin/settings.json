@@ -1,0 +1,23 @@
+{
+  "admin": {
+    "settings": {
+      "title": "Settings",
+      "description": "Manage your administrator profile details and password.",
+      "profileDetails": "Profile details",
+      "changePassword": "Change password",
+      "passwordDescription": "Set a new password for this account. Minimum 8 characters.",
+      "name": "Name",
+      "email": "Email",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password",
+      "saving": "Saving…",
+      "saved": "Saved.",
+      "save": "Save",
+      "changePasswordBtn": "Change password",
+      "profileError": "Failed to save profile details.",
+      "passwordMismatch": "New password and confirmation do not match.",
+      "passwordTooShort": "New password must be at least 8 characters.",
+      "passwordError": "Failed to change password."
+    }
+  }
+}

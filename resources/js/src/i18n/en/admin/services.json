@@ -1,0 +1,28 @@
+{
+  "admin": {
+    "services": {
+      "title": "Services",
+      "description": "Manage the services shown on the website. Changes go live instantly.",
+      "closeForm": "Close form",
+      "newService": "New service",
+      "createService": "Create service",
+      "editService": "Edit service",
+      "newServiceForm": "New service",
+      "titleField": "Title",
+      "description": "Description",
+      "overview": "Overview",
+      "imageKey": "Image (visual key)",
+      "photoRegistry": "Image Key (photo registry)",
+      "capabilities": "Capabilities (one per line)",
+      "noServices": "No services yet",
+      "noServicesDesc": "Create your first service to populate the services section.",
+      "noDescription": "No description",
+      "create": "Create",
+      "save": "Save",
+      "cancel": "Cancel",
+      "createError": "Failed to create service. Please try again.",
+      "updateError": "Failed to update service. Please try again.",
+      "deleteError": "Failed to delete service. Please try again."
+    }
+  }
+}

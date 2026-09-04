@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "about": {
+      "title": "ስለ እኛ",
+      "description": "ተልዕኮ እና ራዕይ፣ ዋና እሴቶች፣ ጉልህ ክንውኖች",
+      "missionVision": "ተልዕኮ እና ራዕይ",
+      "coreValues": "ዋና እሴቶች",
+      "milestones": "ጉልህ ክንውኖች",
+      "mission": "ተልዕኮ",
+      "vision": "ራዕይ",
+      "titleField": "ርዕስ",
+      "descriptionField": "መግለጫ",
+      "year": "ዓመት",
+      "newValue": "አዲስ እሴት",
+      "newMilestone": "አዲስ ክንውን",
+      "save": "አስቀምጥ",
+      "cancel": "ሰርዝ",
+      "addValue": "እሴት አክል",
+      "addMilestone": "ክንውን አክል",
+      "saved": "ተቀምጧል",
+      "saveError": "ማስቀመጥ አልተሳካም",
+      "updateError": "ማዘመን አልተሳካም",
+      "createError": "መፍጠር አልተሳካም",
+      "deleteError": "መሰረዝ አልተሳካም"
+    }
+  }
+}

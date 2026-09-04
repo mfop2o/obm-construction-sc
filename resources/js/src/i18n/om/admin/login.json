@@ -1,0 +1,17 @@
+{
+  "admin": {
+    "login": {
+      "title": "Sirna Dhaabbata OBM",
+      "description": "Marsariitii bulchuuf seeni",
+      "email": "Iimeelii",
+      "password": "Iccitii (Password)",
+      "emailPlaceholder": "admin@obm.local",
+      "passwordPlaceholder": "••••••••",
+      "enterCredentials": "Iimeelii fi iccitii kee galchi.",
+      "invalidCredentials": "Ragaa sirrii hin taane yookiin dogoggora neetworkii. Maaloo irra deebi'ii yaali.",
+      "signingIn": "Seenaa jira...",
+      "signIn": "Seeni",
+      "defaultHint": "Kan duraanii: admin@obm.local · password (erga yeroo jalqabaa seentee booda jijjiiri)"
+    }
+  }
+}

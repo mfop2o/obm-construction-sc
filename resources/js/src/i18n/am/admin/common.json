@@ -1,0 +1,39 @@
+{
+  "admin": {
+    "systemName": "የይዘት ስርዓት",
+    "adminLabel": "አስተዳዳሪ",
+    "mobileHeader": "የOBM ይዘት ስርዓት",
+    "nav": {
+      "dashboard": "ዳሽቦርድ",
+      "projects": "ፕሮጀክቶች (ስራ)",
+      "services": "አገልግሎቶች",
+      "testimonials": "የምስክር ወረቀቶች",
+      "homeStats": "የመነሻ ስታቲስቲክስ",
+      "about": "ስለ እኛ",
+      "careers": "ስራ",
+      "contactInfo": "የእውቂያ መረጃ እና ቢሮዎች",
+      "contacts": "መልዕክቶች (እውቂያዎች)"
+    },
+    "settings": {
+      "title": "ቅንብሮች",
+      "description": "የአስተዳዳሪ መገለጫ ዝርዝሮችን እና የይለፍ ቃልዎን ያስተዳድሩ።",
+      "profileDetails": "የመገለጫ ዝርዝሮች",
+      "changePassword": "የይለፍ ቃል ይቀይሩ",
+      "passwordDescription": "ለዚህ መለያ አዲስ የይለፍ ቃል ያዘጋጁ። ቢያንስ 8 ፊደላት።",
+      "name": "ስም",
+      "email": "ኢሜል",
+      "newPassword": "አዲስ የይለፍ ቃል",
+      "confirmPassword": "አዲሱን የይለፍ ቃል ያረጋግጡ",
+      "saving": "በማስቀመጥ ላይ...",
+      "saved": "ተቀምጧል።",
+      "save": "አስቀምጥ",
+      "changePasswordBtn": "የይለፍ ቃል ይቀይሩ",
+      "profileError": "የመገለጫ ዝርዝሮችን ማስቀመጥ አልተሳካም።",
+      "passwordMismatch": "አዲሱ የይለፍ ቃል እና ማረጋገጫው አይመሳሰሉም።",
+      "passwordTooShort": "አዲሱ የይለፍ ቃል ቢያንስ 8 ፊደላት መሆን አለበት።",
+      "passwordError": "የይለፍ ቃል መቀየር አልተሳካም።"
+    },
+    "signOut": "ውጣ",
+    "loading": "ይዘት በመጫን ላይ..."
+  }
+}

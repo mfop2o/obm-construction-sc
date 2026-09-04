@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "about": {
+      "title": "About",
+      "description": "Mission & vision, core values, milestones",
+      "missionVision": "Mission & Vision",
+      "coreValues": "Core Values",
+      "milestones": "Milestones",
+      "mission": "Mission",
+      "vision": "Vision",
+      "titleField": "Title",
+      "descriptionField": "Description",
+      "year": "Year",
+      "newValue": "New value",
+      "newMilestone": "New milestone",
+      "save": "Save",
+      "cancel": "Cancel",
+      "addValue": "Add value",
+      "addMilestone": "Add milestone",
+      "saved": "Saved",
+      "saveError": "Failed to save",
+      "updateError": "Failed to update",
+      "createError": "Failed to create",
+      "deleteError": "Failed to delete"
+    }
+  }
+}
