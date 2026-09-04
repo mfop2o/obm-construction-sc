@@ -116,7 +116,7 @@ export default function Hero() {
             to="/contact"
             size="lg"
             variant="outline"
-            className="border-white/40 bg-surface/5 text-white backdrop-blur-sm hover:bg-surface hover:text-primary-950"
+            className="border-white/40 bg-surface/5 text-white backdrop-blur-sm hover:bg-surface hover:!text-primary-950"
           >
             {t('nav.startProject')}
           </Button>

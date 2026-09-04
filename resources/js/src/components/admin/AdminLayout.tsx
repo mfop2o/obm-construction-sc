@@ -5,6 +5,21 @@ import { cn } from '../../lib/cn'
 import { Logo } from '../ui/Logo'
 import { LanguageSwitcher } from '../ui/LanguageSwitcher'
 import { useTranslation } from '../../i18n'
+import {
+  LayoutDashboard,
+  Briefcase,
+  Wrench,
+  Quote,
+  BarChart3,
+  Info,
+  BriefcaseBusiness,
+  Building2,
+  MessageSquare,
+  Settings,
+  LogOut,
+  ChevronDown,
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 
 /* ============================================================================
    AdminLayout — protected-ish content "system" shell with a responsive sidebar.
@@ -13,19 +28,20 @@ import { useTranslation } from '../../i18n'
 interface AdminLink {
   to: string
   labelKey: string
+  icon: LucideIcon
   end?: boolean
 }
 
 const navLinks: AdminLink[] = [
-  { to: '/admin', labelKey: 'admin.nav.dashboard', end: true },
-  { to: '/admin/projects', labelKey: 'admin.nav.projects' },
-  { to: '/admin/services', labelKey: 'admin.nav.services' },
-  { to: '/admin/testimonials', labelKey: 'admin.nav.testimonials' },
-  { to: '/admin/home-stats', labelKey: 'admin.nav.homeStats' },
-  { to: '/admin/about', labelKey: 'admin.nav.about' },
-  { to: '/admin/careers', labelKey: 'admin.nav.careers' },
-  { to: '/admin/contact-info', labelKey: 'admin.nav.contactInfo' },
-  { to: '/admin/contacts', labelKey: 'admin.nav.contacts' },
+  { to: '/admin', labelKey: 'admin.nav.dashboard', icon: LayoutDashboard, end: true },
+  { to: '/admin/projects', labelKey: 'admin.nav.projects', icon: Briefcase },
+  { to: '/admin/services', labelKey: 'admin.nav.services', icon: Wrench },
+  { to: '/admin/testimonials', labelKey: 'admin.nav.testimonials', icon: Quote },
+  { to: '/admin/home-stats', labelKey: 'admin.nav.homeStats', icon: BarChart3 },
+  { to: '/admin/about', labelKey: 'admin.nav.about', icon: Info },
+  { to: '/admin/careers', labelKey: 'admin.nav.careers', icon: BriefcaseBusiness },
+  { to: '/admin/contact-info', labelKey: 'admin.nav.contactInfo', icon: Building2 },
+  { to: '/admin/contacts', labelKey: 'admin.nav.contacts', icon: MessageSquare },
 ]
 
 function BrandMark() {
@@ -84,6 +100,7 @@ function NavList({
                     isActive ? 'opacity-100' : 'opacity-0',
                   )}
                 />
+                <link.icon className="h-4 w-4 shrink-0 text-accent-500" />
                 {t(link.labelKey)}
               </>
             )}
@@ -111,21 +128,12 @@ function NavList({
               {user?.email ?? ''}
             </span>
           </span>
-          <svg
+          <ChevronDown
             className={cn(
               'h-4 w-4 shrink-0 text-concrete transition-transform duration-200',
               adminOpen && 'rotate-180',
             )}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
+          />
         </button>
 
         {adminOpen && (
@@ -143,6 +151,7 @@ function NavList({
                 )
               }
             >
+              <Settings className="h-4 w-4 shrink-0 text-accent-500" />
               {t('admin.settings')}
             </NavLink>
             <button
@@ -153,6 +162,7 @@ function NavList({
               }}
               className="flex items-center gap-3 rounded-md px-3 py-2 text-left text-[13px] font-medium text-concrete-dark transition-colors hover:bg-primary-100/70 hover:text-primary-950"
             >
+              <LogOut className="h-4 w-4 shrink-0 text-accent-500" />
               {t('admin.signOut')}
             </button>
           </div>
@@ -170,7 +180,7 @@ export default function AdminLayout() {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Desktop sidebar */}
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-primary-100 bg-primary-50/70 lg:flex">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-primary-100 bg-surface lg:flex">
         <BrandMark />
         <NavList onLogout={logout} />
       </aside>
@@ -181,7 +191,7 @@ export default function AdminLayout() {
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Open admin menu"
-          className="inline-flex h-10 w-10 items-center justify-center text-primary-900 hover:bg-primary-100"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-primary-900 hover:bg-primary-100"
         >
           <svg
             className="h-6 w-6"
@@ -206,26 +216,29 @@ export default function AdminLayout() {
 
       {open && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
           onClick={() => setOpen(false)}
           aria-hidden="true"
         />
       )}
       <div
         className={cn(
-          'fixed inset-y-0 left-0 z-50 w-72 transform bg-primary-50/70 shadow-xl transition-transform duration-300 lg:hidden',
+          'fixed inset-y-0 left-0 z-50 w-72 flex flex-col transform bg-surface shadow-2xl transition-transform duration-300 lg:hidden',
           open ? 'translate-x-0' : '-translate-x-full',
         )}
       >
-        <div className="flex justify-end px-3 pt-3">
+        <div className="flex items-center justify-between border-b border-primary-200/60 px-4 py-3">
+          <span className="font-display text-sm font-bold uppercase tracking-wide text-primary-950">
+            {t('admin.systemName')}
+          </span>
           <button
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close admin menu"
-            className="inline-flex h-10 w-10 items-center justify-center text-concrete hover:bg-primary-100 hover:text-primary-950"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-concrete hover:bg-primary-100 hover:text-primary-950"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
