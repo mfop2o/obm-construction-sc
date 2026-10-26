@@ -11,8 +11,10 @@
       "homeStats": "የመነሻ ስታቲስቲክስ",
       "about": "ስለ እኛ",
       "careers": "ስራ",
+      "applications": "የስራ ያመልክቶች",
       "contactInfo": "የእውቂያ መረጃ እና ቢሮዎች",
-      "contacts": "መልዕክቶች (እውቂያዎች)"
+      "contacts": "መልዕክቶች (እውቂያዎች)",
+      "inquiries": "ጥያቄዎች (ዋጋ ለመጠየቅ)"
     },
     "settings": {
       "title": "ቅንብሮች",

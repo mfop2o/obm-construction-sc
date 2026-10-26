@@ -162,7 +162,7 @@ export default function Contact() {
               whileInView="show"
               viewport={{ once: true, margin: '-80px' }}
             >
-              <div className="border border-primary-200 bg-surface p-6 sm:p-10">
+              <div className="rounded-xl border border-primary-200 bg-surface p-5 shadow-sm sm:p-7">
                 {isSuccess ? (
                   <div
                     role="status"

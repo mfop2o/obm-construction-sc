@@ -1,5 +1,12 @@
 import { useSyncExternalStore } from 'react'
-import type { Project, ProjectCategory } from '../data/projects'
+import type {
+  Project,
+  ProjectCategory,
+  ProjectDocument,
+  ProjectHistoryEntry,
+  ProjectPhoto,
+  ProjectStatus,
+} from '../data/projects'
 import { projectImages } from '../data/images'
 import { http } from './api'
 
@@ -23,6 +30,20 @@ let projects: Project[] = []
 let status: 'loading' | 'ready' | 'error' = 'loading'
 const listeners = new Set<Listener>()
 
+/** Read an optional text column as '' rather than null/undefined. */
+function text(row: Record<string, unknown>, key: string): string | undefined {
+  const value = row[key]
+  return value === null || value === undefined || value === ''
+    ? undefined
+    : String(value)
+}
+
+/** Read a numeric column, defaulting to null when the column is empty. */
+function amount(row: Record<string, unknown>, key: string): number | null {
+  const value = Number(row[key])
+  return Number.isFinite(value) ? value : null
+}
+
 /** Normalise a DB row (nullable fields, JSON arrays) into the Project shape. */
 function normalize(row: Record<string, unknown>): Project {
   const scope = Array.isArray(row.scope) ? row.scope : []
@@ -32,22 +53,38 @@ function normalize(row: Record<string, unknown>): Project {
     slug: String(row.slug ?? ''),
     title: String(row.title ?? ''),
     category: (row.category as ProjectCategory) || 'Commercial',
-    year: row.year ? String(row.year) : '',
-    location: row.location ? String(row.location) : '',
-    status: (row.status as Project['status']) || 'Upcoming',
-    client: row.client ? String(row.client) : '',
-    description: row.description ? String(row.description) : '',
-    overview: row.overview ? String(row.overview) : '',
-    challenge: row.challenge ? String(row.challenge) : '',
-    approach: row.approach ? String(row.approach) : '',
-    result: row.result ? String(row.result) : '',
+    year: text(row, 'year') ?? '',
+    location: text(row, 'location') ?? '',
+    status: (row.status as ProjectStatus) || 'Upcoming',
+    client: text(row, 'client') ?? '',
+    consultant: text(row, 'consultant'),
+    contractor: text(row, 'contractor'),
+    region: text(row, 'region'),
+    contract_amount: amount(row, 'contract_amount'),
+    currency: text(row, 'currency'),
+    contract_date: text(row, 'contract_date'),
+    start_date: text(row, 'start_date'),
+    completion_date: text(row, 'completion_date'),
+    acceptance_date: text(row, 'acceptance_date'),
+    physical_progress: amount(row, 'physical_progress') ?? 0,
+    financial_progress: amount(row, 'financial_progress') ?? 0,
+    description: text(row, 'description') ?? '',
+    overview: text(row, 'overview') ?? '',
+    challenge: text(row, 'challenge') ?? '',
+    approach: text(row, 'approach') ?? '',
+    result: text(row, 'result') ?? '',
     visual: (row.visual as Project['visual']) || 'facade',
     variant: row.variant ? Number(row.variant) : undefined,
-    image: row.image ? String(row.image) : undefined,
+    image: text(row, 'image'),
     size: (row.size as Project['size']) || 'standard',
     featured: Boolean(row.featured),
     scope: scope as Project['scope'],
     gallery: gallery as Project['gallery'],
+    photos: Array.isArray(row.photos) ? (row.photos as ProjectPhoto[]) : [],
+    history: Array.isArray(row.histories) ? (row.histories as ProjectHistoryEntry[]) : [],
+    documents: Array.isArray(row.documents) ? (row.documents as ProjectDocument[]) : [],
+    display_image: text(row, 'display_image'),
+    cover_photo_url: text(row, 'cover_photo_url'),
   }
 }
 
@@ -55,10 +92,11 @@ function emit() {
   listeners.forEach((l) => l())
 }
 
-async function refresh() {
+async function refresh(query: ProjectQuery = {}) {
   try {
     const res = await http.get<{ data: Array<Record<string, unknown>> }>(
       '/api/projects',
+      { params: query },
     )
     projects = (res.data.data ?? []).map(normalize)
     status = 'ready'
@@ -70,8 +108,8 @@ async function refresh() {
 }
 
 /** Trigger a read from the API and update local state. */
-export function refreshProjects(): Promise<void> {
-  return refresh()
+export function refreshProjects(query: ProjectQuery = {}): Promise<void> {
+  return refresh(query)
 }
 
 void refresh()
@@ -92,15 +130,65 @@ export function getRelatedProjects(project: Project, count = 3): Project[] {
   return [...sameCategory, ...others].slice(0, count)
 }
 
-export const projectCategories: ProjectCategory[] = [
-  'Commercial',
-  'Residential',
-  'Infrastructure',
-  'Mixed-Use',
-  'Renovation',
+/**
+ * The translation key fragment for a status, used as
+ * `projects.status.${projectStatusKey(status)}`.
+ */
+export function projectStatusKey(status: ProjectStatus): string {
+  return status === 'Under Maintenance'
+    ? 'maintenance'
+    : status.toLowerCase().replace(/\s+/g, '_')
+}
+
+export { projectCategories } from '../data/projects'
+
+/** The project lifecycle values, matching App\Enums\ProjectStatus. */
+export const projectStatuses: ProjectStatus[] = [
+  'Upcoming',
+  'Ongoing',
+  'Completed',
+  'Accepted',
+  'Under Maintenance',
+  'Suspended',
 ]
 
+/**
+ * The automatic categories a visitor may browse. Each one is derived from a
+ * project's status or recency on the server, so nothing moves by hand.
+ */
+export type ProjectGroup =
+  | 'latest'
+  | 'previous'
+  | 'ongoing'
+  | 'completed'
+  | 'accepted'
+  | 'upcoming'
+
+export const projectGroups: ProjectGroup[] = [
+  'latest',
+  'previous',
+  'ongoing',
+  'completed',
+  'accepted',
+  'upcoming',
+]
+
+/** The filters the /projects page can submit to GET /api/projects. */
+export interface ProjectQuery {
+  search?: string
+  group?: ProjectGroup
+  status?: ProjectStatus
+  region?: string
+  year?: string
+  category?: ProjectCategory
+}
+
+/**
+ * The principal image for a project: uploaded photography wins over the
+ * illustration registry, and the illustration registry wins over nothing.
+ */
 export function getProjectImage(project: Project): string {
+  if (project.display_image) return project.display_image
   if (project.image) return project.image
   return projectImages[project.slug] ?? ''
 }
@@ -194,6 +282,144 @@ export async function setFeaturedProject(slug: string): Promise<void> {
   )
   projects = (res.data.data ?? []).map(normalize)
   emit()
+}
+
+/* ---- Admin: photography ---- */
+
+/** Upload one or more project photographs. The first becomes the cover. */
+export async function uploadProjectPhotos(
+  slug: string,
+  photos: File[],
+  caption?: string,
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  const body = new FormData()
+  photos.forEach((file) => body.append('photos[]', file))
+  if (caption) body.append('caption', caption)
+
+  await http.post(`/api/projects/${id}/photos`, body, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  })
+  await refresh()
+}
+
+/** Update a photograph's caption. */
+export async function updateProjectPhoto(
+  slug: string,
+  photoId: number,
+  caption: string | null,
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  await http.patch(`/api/projects/${id}/photos/${photoId}`, { caption })
+  await refresh()
+}
+
+/** Promote a photograph to be the project cover. */
+export async function setProjectPhotoCover(
+  slug: string,
+  photoId: number,
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  await http.post(`/api/projects/${id}/photos/${photoId}/cover`)
+  await refresh()
+}
+
+/** Move a photograph within the gallery ordering. */
+export async function reorderProjectPhoto(
+  slug: string,
+  photoId: number,
+  direction: 'up' | 'down',
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  await http.post(`/api/projects/${id}/photos/reorder`, { photo_id: photoId, direction })
+  await refresh()
+}
+
+/** Delete a photograph and its file. */
+export async function deleteProjectPhoto(
+  slug: string,
+  photoId: number,
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  await http.delete(`/api/projects/${id}/photos/${photoId}`)
+  await refresh()
+}
+
+/* ---- Admin: history timeline ---- */
+
+/** Record a dated milestone on the project history timeline. */
+export async function addProjectHistory(
+  slug: string,
+  entry: { occurred_on: string; title: string; description?: string | null },
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  await http.post(`/api/projects/${id}/histories`, entry)
+  await refresh()
+}
+
+/** Update an existing timeline entry. */
+export async function updateProjectHistory(
+  slug: string,
+  historyId: number,
+  patch: Partial<{ occurred_on: string; title: string; description: string | null }>,
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  await http.put(`/api/projects/${id}/histories/${historyId}`, patch)
+  await refresh()
+}
+
+/** Delete a timeline entry. */
+export async function deleteProjectHistory(
+  slug: string,
+  historyId: number,
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  await http.delete(`/api/projects/${id}/histories/${historyId}`)
+  await refresh()
+}
+
+/* ---- Admin: documents ---- */
+
+/** Attach a downloadable document to a project. */
+export async function uploadProjectDocument(
+  slug: string,
+  document: File,
+  title?: string,
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  const body = new FormData()
+  body.append('document', document)
+  if (title) body.append('title', title)
+
+  await http.post(`/api/projects/${id}/documents`, body, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  })
+  await refresh()
+}
+
+/** Delete a project document and its file. */
+export async function deleteProjectDocument(
+  slug: string,
+  documentId: number,
+): Promise<void> {
+  const id = findId(slug)
+  if (!id) return
+  await http.delete(`/api/projects/${id}/documents/${documentId}`)
+  await refresh()
+}
+
+/** The public download endpoint for a project document. */
+export function projectDocumentUrl(projectId: number, documentId: number): string {
+  return `/api/projects/${projectId}/documents/${documentId}`
 }
 
 export async function resetProjects(): Promise<void> {

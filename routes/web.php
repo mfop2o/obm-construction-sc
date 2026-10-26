@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\CareerController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\ContactSettingsController;
 use App\Http\Controllers\Api\HomeStatController;
+use App\Http\Controllers\Api\InquiryController;
+use App\Http\Controllers\Api\JobApplicationController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\TestimonialController;
@@ -32,27 +34,74 @@ Route::prefix('api')->group(function () {
     // Public project reads
     Route::get('/projects', [ProjectController::class, 'index']);
     Route::get('/projects/{slug}', [ProjectController::class, 'show']);
+    Route::get('/projects/{project}/documents/{document}', [ProjectController::class, 'documentDownload'])
+        ->whereNumber(['project', 'document']);
 
     // Public content reads
     Route::get('/testimonials', [TestimonialController::class, 'index']);
     Route::get('/contact-settings', [ContactSettingsController::class, 'index']);
     Route::get('/services', [ServiceController::class, 'index']);
     Route::get('/careers', [CareerController::class, 'index']);
+    Route::get('/careers/{id}', [CareerController::class, 'show'])->whereNumber('id');
     Route::get('/home-stats', [HomeStatController::class, 'index']);
     Route::get('/about', [AboutController::class, 'index']);
 
     // Public: contact form submission
     Route::post('/contacts', [ContactController::class, 'store']);
 
+    // Public: request a quote / project inquiry submission
+    Route::post('/inquiries', [InquiryController::class, 'store']);
+
+    // Public: online job application submission
+    Route::post('/job-applications', [JobApplicationController::class, 'store']);
+
+    // Admin: inquiries triage
+    Route::middleware('auth')->prefix('inquiries')->group(function () {
+        Route::get('/', [InquiryController::class, 'index']);
+        Route::get('/{id}', [InquiryController::class, 'show']);
+        Route::patch('/{id}/status', [InquiryController::class, 'updateStatus']);
+        Route::patch('/{id}/read', [InquiryController::class, 'updateRead']);
+        Route::put('/{id}/note', [InquiryController::class, 'updateNote']);
+        Route::get('/{id}/attachment', [InquiryController::class, 'attachment']);
+        Route::delete('/{id}', [InquiryController::class, 'destroy']);
+    });
+
     // Admin project management
     Route::middleware('auth')->prefix('projects')->group(function () {
         Route::post('/import', [ProjectController::class, 'import']);
         Route::post('/reset', [ProjectController::class, 'reset']);
         Route::post('/', [ProjectController::class, 'store']);
-        Route::put('/{id}', [ProjectController::class, 'update']);
-        Route::delete('/{id}', [ProjectController::class, 'destroy']);
-        Route::post('/{id}/reorder', [ProjectController::class, 'reorder']);
-        Route::post('/{id}/featured', [ProjectController::class, 'setFeatured']);
+        Route::put('/{id}', [ProjectController::class, 'update'])->whereNumber('id');
+        Route::delete('/{id}', [ProjectController::class, 'destroy'])->whereNumber('id');
+        Route::post('/{id}/reorder', [ProjectController::class, 'reorder'])->whereNumber('id');
+        Route::post('/{id}/featured', [ProjectController::class, 'setFeatured'])->whereNumber('id');
+
+        // Project photography: upload, caption, reorder, cover, delete.
+        Route::post('/{id}/photos', [ProjectController::class, 'storePhotos'])->whereNumber('id');
+        Route::post('/{id}/photos/reorder', [ProjectController::class, 'reorderPhotos'])->whereNumber('id');
+        Route::patch('/{id}/photos/{photo}', [ProjectController::class, 'updatePhoto'])->whereNumber(['id', 'photo']);
+        Route::delete('/{id}/photos/{photo}', [ProjectController::class, 'destroyPhoto'])->whereNumber(['id', 'photo']);
+        Route::post('/{id}/photos/{photo}/cover', [ProjectController::class, 'setPhotoCover'])->whereNumber(['id', 'photo']);
+
+        // Project history / timeline.
+        Route::post('/{id}/histories', [ProjectController::class, 'storeHistory'])->whereNumber('id');
+        Route::put('/{id}/histories/{history}', [ProjectController::class, 'updateHistory'])->whereNumber(['id', 'history']);
+        Route::delete('/{id}/histories/{history}', [ProjectController::class, 'destroyHistory'])->whereNumber(['id', 'history']);
+
+        // Project documents.
+        Route::post('/{id}/documents', [ProjectController::class, 'storeDocument'])->whereNumber('id');
+        Route::delete('/{id}/documents/{document}', [ProjectController::class, 'destroyDocument'])->whereNumber(['id', 'document']);
+    });
+
+    // Admin: job application triage (recruitment dashboard)
+    Route::middleware('auth')->prefix('job-applications')->group(function () {
+        Route::get('/', [JobApplicationController::class, 'index']);
+        Route::get('/summary', [JobApplicationController::class, 'summary']);
+        Route::get('/{id}', [JobApplicationController::class, 'show'])->whereNumber('id');
+        Route::get('/{id}/attachment', [JobApplicationController::class, 'attachment'])->whereNumber('id');
+        Route::patch('/{id}/status', [JobApplicationController::class, 'updateStatus'])->whereNumber('id');
+        Route::put('/{id}/note', [JobApplicationController::class, 'updateNote'])->whereNumber('id');
+        Route::delete('/{id}', [JobApplicationController::class, 'destroy'])->whereNumber('id');
     });
 
     // Admin: testimonials

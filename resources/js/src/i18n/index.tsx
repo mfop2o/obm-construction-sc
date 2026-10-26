@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {
   createContext,
   useCallback,
@@ -27,6 +28,7 @@ import enProjects from './en/projects.json'
 import enCareers from './en/careers.json'
 import enContact from './en/contact.json'
 import enNotFound from './en/notFound.json'
+import enRequestQuote from './en/requestQuote.json'
 import enAdminCommon from './en/admin/common.json'
 import enAdminLogin from './en/admin/login.json'
 import enAdminDashboard from './en/admin/dashboard.json'
@@ -36,10 +38,12 @@ import enAdminServices from './en/admin/services.json'
 import enAdminTestimonials from './en/admin/testimonials.json'
 import enAdminContacts from './en/admin/contacts.json'
 import enAdminCareers from './en/admin/careers.json'
+import enAdminApplications from './en/admin/applications.json'
 import enAdminHomeStats from './en/admin/homeStats.json'
 import enAdminAbout from './en/admin/about.json'
 import enAdminContactInfo from './en/admin/contactInfo.json'
 import enAdminData from './en/admin/data.json'
+import enAdminInquiries from './en/admin/inquiries.json'
 
 // --- Import all Amharic namespace files ---
 import amCommon from './am/common.json'
@@ -50,6 +54,7 @@ import amProjects from './am/projects.json'
 import amCareers from './am/careers.json'
 import amContact from './am/contact.json'
 import amNotFound from './am/notFound.json'
+import amRequestQuote from './am/requestQuote.json'
 import amAdminCommon from './am/admin/common.json'
 import amAdminLogin from './am/admin/login.json'
 import amAdminDashboard from './am/admin/dashboard.json'
@@ -59,10 +64,12 @@ import amAdminServices from './am/admin/services.json'
 import amAdminTestimonials from './am/admin/testimonials.json'
 import amAdminContacts from './am/admin/contacts.json'
 import amAdminCareers from './am/admin/careers.json'
+import amAdminApplications from './am/admin/applications.json'
 import amAdminHomeStats from './am/admin/homeStats.json'
 import amAdminAbout from './am/admin/about.json'
 import amAdminContactInfo from './am/admin/contactInfo.json'
 import amAdminData from './am/admin/data.json'
+import amAdminInquiries from './am/admin/inquiries.json'
 
 // --- Import all Oromo namespace files ---
 import omCommon from './om/common.json'
@@ -73,6 +80,7 @@ import omProjects from './om/projects.json'
 import omCareers from './om/careers.json'
 import omContact from './om/contact.json'
 import omNotFound from './om/notFound.json'
+import omRequestQuote from './om/requestQuote.json'
 import omAdminCommon from './om/admin/common.json'
 import omAdminLogin from './om/admin/login.json'
 import omAdminDashboard from './om/admin/dashboard.json'
@@ -82,10 +90,12 @@ import omAdminServices from './om/admin/services.json'
 import omAdminTestimonials from './om/admin/testimonials.json'
 import omAdminContacts from './om/admin/contacts.json'
 import omAdminCareers from './om/admin/careers.json'
+import omAdminApplications from './om/admin/applications.json'
 import omAdminHomeStats from './om/admin/homeStats.json'
 import omAdminAbout from './om/admin/about.json'
 import omAdminContactInfo from './om/admin/contactInfo.json'
 import omAdminData from './om/admin/data.json'
+import omAdminInquiries from './om/admin/inquiries.json'
 
 // Deep-merge helper: recursively merges source into target
 function deepMerge(target: Record<string, unknown>, source: Record<string, unknown>): Record<string, unknown> {
@@ -113,23 +123,26 @@ function deepMerge(target: Record<string, unknown>, source: Record<string, unkno
 const heroOverrides: Record<string, Record<string, Record<string, string>>> = {
   en: {
     home: {
-      heroEyebrow: 'for Construction \u2022 Engineering \u2022 Infrastructure',
-      heroTitleLine1: 'We Build',
-      heroTitleLine2: 'a fair World.',
+      heroEyebrow: 'General Contractor • Engineering & Infrastructure',
+      heroTitleLine1: 'OBM – We Build Strong,',
+      heroTitleLine2: 'Finish with Quality,',
+      heroTitleLine3: 'and Deliver Lasting Results',
     },
   },
   am: {
     home: {
-      heroEyebrow: '\u1208\u130d\u1295\u1263\u1273 \u2022 \u121d\u1205\u1295\u12f5\u1235\u1293 \u2022 \u1218\u1230\u1228\u1270 \u120d\u121b\u1275',
-      heroTitleLine1: '\u12a5\u129b \u134d\u1275\u1203\u12ca \u12d3\u1208\u121d\u1295',
-      heroTitleLine2: '\u12a5\u1295\u1308\u1290\u1263\u1208\u1295::',
+      heroEyebrow: 'ዋና ተቋራጭ • ምህንድስና እና መሰረተ ልማት',
+      heroTitleLine1: 'OBM – በኃይሎ እንገናኝ፣',
+      heroTitleLine2: 'በጥራት የሚጠናቀቅ፣',
+      heroTitleLine3: 'የሚቀጥሉ ውጤቶችንም እንሰጣለን።',
     },
   },
   om: {
     home: {
-      heroEyebrow: 'Ijaarsa \u2022 Injinariingii \u2022 Bu\u2019uura Misoomaa',
-      heroTitleLine1: 'Nuti Addunyaa',
-      heroTitleLine2: 'Haqa-qabeessa ni ijaarra,',
+      heroEyebrow: 'Kontaaktara Waliigalaa • Injinariingii & Bu’uura Misoomaa',
+      heroTitleLine1: 'OBM – Nii humna dhabeessa,',
+      heroTitleLine2: 'Qulqullina dhaabbata,',
+      heroTitleLine3: 'Natiifama dhaabbata dhiheessuu.',
     },
   },
 }
@@ -157,8 +170,8 @@ const translations: Record<Locale, Record<string, unknown>> = {
     enCareers, enContact, enNotFound,
     enAdminCommon, enAdminLogin, enAdminDashboard, enAdminSettings,
     enAdminProjects, enAdminServices, enAdminTestimonials, enAdminContacts,
-    enAdminCareers, enAdminHomeStats, enAdminAbout, enAdminContactInfo,
-    enAdminData,
+    enAdminCareers, enAdminApplications, enAdminHomeStats, enAdminAbout, enAdminContactInfo,
+    enAdminData, enAdminInquiries, enRequestQuote,
   ),
   am: buildLocaleTranslations(
     'am',
@@ -166,8 +179,8 @@ const translations: Record<Locale, Record<string, unknown>> = {
     amCareers, amContact, amNotFound,
     amAdminCommon, amAdminLogin, amAdminDashboard, amAdminSettings,
     amAdminProjects, amAdminServices, amAdminTestimonials, amAdminContacts,
-    amAdminCareers, amAdminHomeStats, amAdminAbout, amAdminContactInfo,
-    amAdminData,
+    amAdminCareers, amAdminApplications, amAdminHomeStats, amAdminAbout, amAdminContactInfo,
+    amAdminData, amAdminInquiries, amRequestQuote,
   ),
   om: buildLocaleTranslations(
     'om',
@@ -175,8 +188,8 @@ const translations: Record<Locale, Record<string, unknown>> = {
     omCareers, omContact, omNotFound,
     omAdminCommon, omAdminLogin, omAdminDashboard, omAdminSettings,
     omAdminProjects, omAdminServices, omAdminTestimonials, omAdminContacts,
-    omAdminCareers, omAdminHomeStats, omAdminAbout, omAdminContactInfo,
-    omAdminData,
+    omAdminCareers, omAdminApplications, omAdminHomeStats, omAdminAbout, omAdminContactInfo,
+    omAdminData, omAdminInquiries, omRequestQuote,
   ),
 }
 

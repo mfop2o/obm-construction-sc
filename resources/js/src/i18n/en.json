@@ -2,7 +2,8 @@
   "brand": {
     "short": "OBM",
     "full": "OBM Construction S.C.",
-    "tagline": "Engineering excellence"
+    "tagline": "Engineering excellence",
+    "motto": "OBM – We Build Strong, Finish with Quality, and Deliver Lasting Results"
   },
   "nav": {
     "home": "Home",
@@ -17,11 +18,12 @@
     "openMenu": "Open menu"
   },
   "home": {
-    "title": "OBM Construction S.C. | Engineering Excellence in Ethiopia",
-    "description": "OBM is an Ethiopian construction company delivering commercial, residential and infrastructure projects with engineering excellence, safety and integrity.",
-    "heroEyebrow": "Construction • Engineering • Infrastructure",
-    "heroTitleLine1": "We Build",
-    "heroTitleLine2": "a fair World."
+    "title": "OBM Construction S.C. | We Build Strong, Finish with Quality",
+    "description": "OBM is an Ethiopian construction company delivering commercial, residential and infrastructure projects with engineering excellence, safety and integrity. We Build Strong, Finish with Quality, and Deliver Lasting Results.",
+    "heroEyebrow": "General Contractor • Engineering & Infrastructure",
+    "heroTitleLine1": "OBM – We Build Strong,",
+    "heroTitleLine2": "Finish with Quality,",
+    "heroTitleLine3": "and Deliver Lasting Results"
   },
   "about": {
     "title": "About Us | OBM Construction S.C.",

@@ -9,12 +9,59 @@
    /projects/:slug pages.
    ========================================================================== */
 
-export type ProjectCategory =
-  | 'Commercial'
-  | 'Residential'
-  | 'Infrastructure'
-  | 'Mixed-Use'
-  | 'Renovation'
+/**
+ * The sector a project is filed under. The database column is a free-text
+ * label (max 255) and administrators may introduce new sectors at any time, so
+ * this is deliberately a plain string rather than a closed union. The curated
+ * list of sectors offered in the admin select and the public filter lives in
+ * `projectCategories`.
+ */
+export type ProjectCategory = string
+
+/**
+ * The project lifecycle an administrator selects. Public categories are derived
+ * from this value, so a project never has to be filed under a category by hand.
+ * Mirrors App\Enums\ProjectStatus.
+ */
+export type ProjectStatus =
+  | 'Upcoming'
+  | 'Ongoing'
+  | 'Completed'
+  | 'Accepted'
+  | 'Under Maintenance'
+  | 'Suspended'
+
+/** An uploaded project photograph. */
+export interface ProjectPhoto {
+  id: number
+  path: string
+  original_name: string | null
+  caption: string | null
+  is_cover: boolean
+  sort_order: number
+  url: string | null
+}
+
+/** A dated milestone on the project history timeline. */
+export interface ProjectHistoryEntry {
+  id: number
+  occurred_on: string
+  title: string
+  description: string | null
+  sort_order: number
+}
+
+/** A publicly downloadable project document. */
+export interface ProjectDocument {
+  id: number
+  title: string | null
+  path: string
+  original_name: string | null
+  file_size: number | null
+  mime: string | null
+  sort_order: number
+  url: string | null
+}
 
 export interface Project {
   /** Database id when loaded from the Laravel API. */
@@ -24,9 +71,27 @@ export interface Project {
   category: ProjectCategory
   year: string
   location: string
-  status: 'Completed' | 'In Progress' | 'Upcoming'
+  status: ProjectStatus
   /** Placeholder client — replace with the real client organisation. */
   client: string
+  /** Supervising consultant, where the contract records one. */
+  consultant?: string
+  /** Contracting firm; OBM Construction S.C. for our own projects. */
+  contractor?: string
+  /** Region or zone the project sits in. */
+  region?: string
+  /** Contract value and the currency it is denominated in. */
+  contract_amount?: number | null
+  currency?: string
+  /** Contract programme milestones. */
+  contract_date?: string | null
+  start_date?: string | null
+  completion_date?: string | null
+  /** Set once the client has formally accepted handover. */
+  acceptance_date?: string | null
+  /** Reported progress as a percentage, 0-100. */
+  physical_progress?: number
+  financial_progress?: number
   /** Short summary used on cards and meta. */
   description: string
   /** Detailed long-form description for the detail page. */
@@ -52,17 +117,30 @@ export interface Project {
   featured?: boolean
   /** Gallery visuals for the detail page (SVG keys + variants). */
   gallery: { visual: 'facade' | 'road' | 'framework'; variant?: number; alt: string }[]
+  /** Photography uploaded from the admin panel; the first is the cover. */
+  photos: ProjectPhoto[]
+  /** Dated milestones recorded on the project history timeline. */
+  history: ProjectHistoryEntry[]
+  /** Downloadable documents (contracts, completion certificates, reports). */
+  documents: ProjectDocument[]
+  /** Resolved cover image: uploaded photography, else the illustration registry. */
+  display_image?: string | null
+  /** Public URL of the cover photograph, when the project has uploaded photos. */
+  cover_photo_url?: string | null
 }
 
 export const projectCategories: ProjectCategory[] = [
   'Commercial',
   'Residential',
+  'Industrial',
+  'Institutional',
   'Infrastructure',
+  'Civic & Public',
   'Mixed-Use',
   'Renovation',
 ]
 
-export const projects: Project[] = [
+const placeholderProjects: Omit<Project, 'photos' | 'history' | 'documents'>[] = [
   {
     slug: 'bati-regional-market',
     title: 'Bati Regional Market',
@@ -166,7 +244,7 @@ export const projects: Project[] = [
     category: 'Residential',
     year: '2023',
     location: 'Addis Ababa, Ethiopia',
-    status: 'In Progress',
+    status: 'Ongoing',
     client: 'Client organisation placeholder',
     description:
       'Multi-storey residential blocks delivered on schedule with structural integrity.',
@@ -180,7 +258,7 @@ export const projects: Project[] = [
       'Residential blocks progressing steadily, with structural works meeting all safety and engineering standards.',
     scope: [
       { key: 'Sector', value: 'Residential' },
-      { key: 'Status', value: 'In Progress' },
+      { key: 'Status', value: 'Ongoing' },
       { key: 'Location', value: 'Addis Ababa, Ethiopia' },
       { key: 'Year', value: '2023' },
     ],
@@ -262,7 +340,7 @@ export const projects: Project[] = [
     category: 'Commercial',
     year: '2022',
     location: 'Metu, Ethiopia',
-    status: 'In Progress',
+    status: 'Ongoing',
     client: 'Client organisation placeholder',
     description:
       'A modern commercial office building with high-quality internal fit-out.',
@@ -276,7 +354,7 @@ export const projects: Project[] = [
       'A modern, efficient office building progressing through fit-out with quality maintained throughout.',
     scope: [
       { key: 'Sector', value: 'Commercial' },
-      { key: 'Status', value: 'In Progress' },
+      { key: 'Status', value: 'Ongoing' },
       { key: 'Location', value: 'Metu, Ethiopia' },
       { key: 'Year', value: '2022' },
     ],
@@ -320,6 +398,18 @@ export const projects: Project[] = [
     ],
   },
 ]
+
+/**
+ * The placeholder registry with empty relation arrays, so components that read
+ * photos, history, and documents never have to guard against missing values.
+ * The API-backed store in src/lib/projectsStore.ts replaces this at runtime.
+ */
+export const projects: Project[] = placeholderProjects.map((project) => ({
+  ...project,
+  photos: [],
+  history: [],
+  documents: [],
+}))
 
 export const getProjectBySlug = (slug: string) =>
   projects.find((p) => p.slug === slug)

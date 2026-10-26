@@ -11,7 +11,9 @@ import Services from './pages/Services'
 import Projects from './pages/Projects'
 import ProjectDetails from './pages/ProjectDetails'
 import Careers from './pages/Careers'
+import OpeningDetail from './pages/OpeningDetail'
 import Contact from './pages/Contact'
+import RequestQuote from './pages/RequestQuote'
 import NotFound from './pages/NotFound'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
@@ -19,10 +21,12 @@ import AdminProjects from './pages/admin/AdminProjects'
 import AdminProjectEditor from './pages/admin/AdminProjectEditor'
 import AdminData from './pages/admin/AdminData'
 import AdminContacts from './pages/admin/AdminContacts'
+import AdminInquiries from './pages/admin/AdminInquiries'
 import AdminTestimonials from './pages/admin/AdminTestimonials'
 import AdminContactInfo from './pages/admin/AdminContactInfo'
 import AdminServices from './pages/admin/AdminServices'
 import AdminCareers from './pages/admin/AdminCareers'
+import AdminApplications from './pages/admin/AdminApplications'
 import AdminHomeStats from './pages/admin/AdminHomeStats'
 import AdminAbout from './pages/admin/AdminAbout'
 import AdminSettings from './pages/admin/AdminSettings'
@@ -55,7 +59,9 @@ function App() {
               <Route path="projects/:slug" element={<ProjectDetails />} />
               <Route path="about" element={<About />} />
               <Route path="careers" element={<Careers />} />
+          <Route path="careers/:id" element={<OpeningDetail />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="request-quote" element={<RequestQuote />} />
               <Route path="*" element={<NotFound />} />
             </Route>
             <Route path="admin/login" element={<AdminLogin />} />
@@ -66,10 +72,12 @@ function App() {
                 <Route path="projects/new" element={<AdminProjectEditor key="new" />} />
                 <Route path="projects/:slug" element={<AdminProjectEditor key="edit" />} />
                 <Route path="contacts" element={<AdminContacts />} />
+                <Route path="inquiries" element={<AdminInquiries />} />
                 <Route path="testimonials" element={<AdminTestimonials />} />
                 <Route path="contact-info" element={<AdminContactInfo />} />
                 <Route path="services" element={<AdminServices />} />
                 <Route path="careers" element={<AdminCareers />} />
+            <Route path="applications" element={<AdminApplications />} />
                 <Route path="home-stats" element={<AdminHomeStats />} />
                 <Route path="about" element={<AdminAbout />} />
                 <Route path="settings" element={<AdminSettings />} />

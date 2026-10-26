@@ -60,21 +60,21 @@ export function ProjectCard({
       )}
 
       {/* bottom content */}
-      <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent-400">
+      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 md:p-6">
+        <div className="flex items-end justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-400">
               {project.category}
             </p>
-            <h3 className="mt-2 font-display text-xl font-semibold text-white md:text-2xl">
+            <h3 className="mt-1 font-display text-lg font-bold leading-snug text-white sm:text-xl">
               {project.title}
             </h3>
-            <p className="mt-1 text-sm text-primary-200">
+            <p className="mt-1 text-xs text-primary-200">
               {project.location} &bull; {project.year}
             </p>
           </div>
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/25 bg-surface/10 text-white backdrop-blur transition-all duration-300 group-hover:border-accent-400 group-hover:bg-accent-400 group-hover:text-primary-950">
-            <ArrowUpRight size={20} strokeWidth={1.5} />
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/25 bg-surface/10 text-white backdrop-blur transition-all duration-300 group-hover:border-accent-400 group-hover:bg-accent-400 group-hover:text-primary-950">
+            <ArrowUpRight size={17} strokeWidth={1.75} />
           </span>
         </div>
       </div>
@@ -82,7 +82,7 @@ export function ProjectCard({
   )
 
   const baseClasses = cn(
-    'group relative block overflow-hidden bg-primary-800',
+    'group relative block overflow-hidden rounded-2xl border border-primary-900/40 bg-primary-950 shadow-md transition-shadow duration-300 hover:shadow-2xl',
     aspect,
     className,
   )

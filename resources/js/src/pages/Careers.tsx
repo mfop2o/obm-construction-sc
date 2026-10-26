@@ -117,49 +117,49 @@ export default function Careers() {
                 whileInView="show"
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: (i % 2) * 0.08 }}
-                className="group flex flex-col border border-primary-200 bg-background p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-400 hover:shadow-md"
+                className="group flex flex-col rounded-xl border border-primary-200 bg-background p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-400 hover:shadow-md"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <p className="font-display text-xs font-bold tracking-[0.2em] text-accent-500">
+                  <p className="font-display text-[11px] font-bold tracking-[0.2em] text-accent-500">
                     {String(i + 1).padStart(2, '0')}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-900 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent-400">
-                    <Clock size={12} />
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-900 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-accent-400">
+                    <Clock size={11} />
                     {role.type}
                   </span>
                 </div>
 
-                <h3 className="mt-3 font-display text-lg font-bold leading-snug text-primary-950">
+                <h3 className="mt-2.5 font-display text-base font-bold leading-snug text-primary-950 sm:text-lg">
                   {role.title}
                 </h3>
-                <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-concrete-dark">
+                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-concrete-dark">
                   {role.blurb}
                 </p>
 
-                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-concrete-dark">
+                <div className="mt-3 flex flex-wrap items-center gap-x-3.5 gap-y-1.5 text-xs text-concrete-dark">
                   <span className="inline-flex items-center gap-1.5">
-                    <Briefcase size={13} className="text-accent-500" />
+                    <Briefcase size={12} className="text-accent-500" />
                     {role.department}
                   </span>
                   <span className="inline-flex items-center gap-1.5">
-                    <MapPin size={13} className="text-accent-500" />
+                    <MapPin size={12} className="text-accent-500" />
                     {role.location}
                   </span>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between border-t border-primary-200 pt-4">
-                  <span className="text-xs font-medium text-concrete">
+                <div className="mt-3.5 flex items-center justify-between border-t border-primary-200/80 pt-3">
+                  <span className="text-[11px] font-medium text-concrete">
                     {t('careers.fullDetails')}
                   </span>
                   <Button
                     as="link"
-                    to="/contact"
+                    to={`/careers/${role.id}`}
                     variant="link"
                     size="sm"
-                    className="font-display group-hover:text-accent-500"
+                    className="font-display text-xs group-hover:text-accent-500"
                   >
                     {t('careers.apply')}
-                    <ArrowRight size={15} />
+                    <ArrowRight size={13} />
                   </Button>
                 </div>
               </motion.article>

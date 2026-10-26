@@ -7,15 +7,15 @@
         <meta name="theme-color" content="#101820" />
         <meta
             name="description"
-            content="OBM Construction S.C. | Engineering excellence and quality construction across Ethiopia."
+            content="OBM – We Build Strong, Finish with Quality, and Deliver Lasting Results. Engineering excellence and quality construction across Ethiopia."
         />
 
         <!-- Open Graph / social -->
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="OBM Construction S.C." />
+        <meta property="og:title" content="OBM Construction S.C. | We Build Strong, Finish with Quality" />
         <meta
             property="og:description"
-            content="Engineering excellence and quality construction across Ethiopia."
+            content="OBM – We Build Strong, Finish with Quality, and Deliver Lasting Results. Engineering excellence and quality construction across Ethiopia."
         />
         <meta property="og:site_name" content="OBM Construction S.C." />
 

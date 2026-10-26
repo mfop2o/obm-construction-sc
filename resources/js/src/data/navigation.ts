@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router-dom'
-import { useTranslation, type Locale } from '../i18n'
+import { useTranslation } from '../i18n'
 
 /* ============================================================================
    Central navigation config — single source of truth for Navbar & Footer.

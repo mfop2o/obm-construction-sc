@@ -8,17 +8,23 @@ import {
 import Button from '../components/ui/Button'
 import { ProjectGrid } from '../components/projects/ProjectGrid'
 import { ProjectGallery } from '../components/projects/ProjectGallery'
+import { ProjectTimeline } from '../components/projects/ProjectTimeline'
+import { ProjectDocuments } from '../components/projects/ProjectDocuments'
 import {
   getProjectBySlug,
   getRelatedProjects,
   getProjectImage,
+  projectStatusKey,
   useProjects,
 } from '../lib/projectsStore'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { useTranslation } from '../i18n'
+import type { Project, ProjectStatus } from '../data/projects'
 
 /* ============================================================================
    /projects/:slug — project detail page.
-   Elects the project by slug and renders full editorial detail.
+   Elects the project by slug and renders the contract facts, photography,
+   history timeline and documents alongside the editorial narrative.
    ========================================================================== */
 
 const fade = {
@@ -30,13 +36,17 @@ const fade = {
   },
 }
 
-const statusStyles: Record<string, string> = {
-  Completed: 'bg-emerald-500/10 text-emerald-300',
-  'In Progress': 'bg-accent-400/15 text-accent-300',
+const statusStyles: Record<ProjectStatus, string> = {
+  Completed: 'bg-primary-500/15 text-primary-500',
+  Ongoing: 'bg-accent-400/15 text-accent-300',
+  Accepted: 'bg-emerald-500/15 text-emerald-300',
   Upcoming: 'bg-primary-500/15 text-primary-300',
+  'Under Maintenance': 'bg-amber-500/15 text-amber-200',
+  Suspended: 'bg-red-500/15 text-red-200',
 }
 
 export default function ProjectDetails() {
+  const { t } = useTranslation()
   useProjects()
   const { slug } = useParams<{ slug: string }>()
   const project = slug ? getProjectBySlug(slug) : undefined
@@ -55,10 +65,11 @@ export default function ProjectDetails() {
 
   const related = getRelatedProjects(project)
   const narrative = [
-    { label: 'The Challenge', body: project.challenge },
-    { label: 'Our Approach', body: project.approach },
-    { label: 'The Result', body: project.result },
+    { label: t('projectDetail.challenge'), body: project.challenge },
+    { label: t('projectDetail.approach'), body: project.approach },
+    { label: t('projectDetail.result'), body: project.result },
   ]
+  const facts = contractFacts(project, t)
 
   return (
     <>
@@ -80,14 +91,14 @@ export default function ProjectDetails() {
             initial="hidden"
             animate="show"
             className="mb-8 flex flex-wrap items-center gap-1.5 text-sm text-primary-300"
-            aria-label="Breadcrumb"
+            aria-label={t('projectDetail.breadcrumbLabel')}
           >
             <Link to="/" className="transition-colors hover:text-white">
-              Home
+              {t('projectDetail.breadcrumbHome')}
             </Link>
             <span className="text-primary-500">/</span>
             <Link to="/projects" className="transition-colors hover:text-white">
-              Projects
+              {t('projectDetail.breadcrumbProjects')}
             </Link>
             <span className="text-primary-500">/</span>
             <span className="text-white">{project.title}</span>
@@ -122,13 +133,16 @@ export default function ProjectDetails() {
               <MapPin size={16} className="text-accent-400" />
               {project.location}
             </span>
+            {project.region && <span>{project.region}</span>}
             <span>{project.year}</span>
-            <span
-              className={cnStatus(project.status)}
-            >
-              {project.status}
+            <span className={cnStatus(project.status)}>
+              {t(`projects.status.${statusKey(project.status)}`)}
             </span>
-            <span className="text-primary-300">Client: {project.client}</span>
+            {project.client && (
+              <span className="text-primary-300">
+                {t('projectDetail.clientLabel')}: {project.client}
+              </span>
+            )}
           </motion.div>
 
           <motion.div
@@ -138,7 +152,7 @@ export default function ProjectDetails() {
             className="mt-10"
           >
             <Button as="link" to="/contact" variant="accent">
-              Start a Similar Project
+              {t('projectDetail.startSimilar')}
               <ArrowRight size={18} />
             </Button>
           </motion.div>
@@ -160,8 +174,58 @@ export default function ProjectDetails() {
         </Container>
       </Section>
 
-      {/* ---- Facts & scope ---- */}
-      <Section as="section" padding="md" className="border-y border-primary-200 bg-surface">
+      {/* ---- Progress, for projects that are still being reported on ---- */}
+      {(project.status === 'Ongoing' || project.status === 'Upcoming') &&
+        ((project.physical_progress ?? 0) > 0 || (project.financial_progress ?? 0) > 0) && (
+          <Section as="section" padding="md" className="bg-background">
+            <Container>
+              <div className="grid gap-8 md:grid-cols-2">
+                <ProgressBar
+                  label={t('projectDetail.physicalProgress')}
+                  value={project.physical_progress ?? 0}
+                />
+                <ProgressBar
+                  label={t('projectDetail.financialProgress')}
+                  value={project.financial_progress ?? 0}
+                />
+              </div>
+            </Container>
+          </Section>
+        )}
+
+      {/* ---- Contract facts ---- */}
+      {facts.length > 0 && (
+        <Section as="section" padding="md" className="border-y border-primary-200 bg-surface">
+          <Container>
+            <p className="mb-8 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-500">
+              <span className="inline-block h-px w-8 bg-current" />
+              {t('projectDetail.contractFacts')}
+            </p>
+            <dl className="grid grid-cols-2 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+              {facts.map((fact) => (
+                <motion.div
+                  key={fact.label}
+                  variants={fade}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: '-40px' }}
+                  className="flex flex-col gap-1"
+                >
+                  <dt className="text-xs font-medium uppercase tracking-[0.2em] text-concrete">
+                    {fact.label}
+                  </dt>
+                  <dd className="font-display text-lg font-semibold text-primary-950">
+                    {fact.value}
+                  </dd>
+                </motion.div>
+              ))}
+            </dl>
+          </Container>
+        </Section>
+      )}
+
+      {/* ---- Key facts & scope ---- */}
+      <Section as="section" padding="md" className={facts.length > 0 ? 'bg-background' : 'border-y border-primary-200 bg-surface'}>
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_auto]">
             <dl className="grid grid-cols-2 gap-y-8 sm:grid-cols-4 lg:gap-6">
@@ -224,21 +288,47 @@ export default function ProjectDetails() {
         <Container>
           <p className="mb-8 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-500">
             <span className="inline-block h-px w-8 bg-current" />
-            Gallery
+            {t('projectDetail.gallery')}
           </p>
           <ProjectGallery project={project} />
         </Container>
       </Section>
+
+      {/* ---- Project history timeline ---- */}
+      {project.history.length > 0 && (
+        <Section as="section" padding="lg" className="border-t border-primary-200 bg-surface">
+          <Container>
+            <p className="mb-10 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-500">
+              <span className="inline-block h-px w-8 bg-current" />
+              {t('projectDetail.history')}
+            </p>
+            <ProjectTimeline project={project} />
+          </Container>
+        </Section>
+      )}
+
+      {/* ---- Documents ---- */}
+      {project.documents.length > 0 && (
+        <Section as="section" padding="lg" className="border-t border-primary-200 bg-background">
+          <Container>
+            <p className="mb-8 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-500">
+              <span className="inline-block h-px w-8 bg-current" />
+              {t('projectDetail.documents')}
+            </p>
+            <ProjectDocuments project={project} />
+          </Container>
+        </Section>
+      )}
 
       {/* ---- Related projects ---- */}
       <Section as="section" padding="lg" className="border-t border-primary-200 bg-background">
         <Container>
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h2 className="font-display text-3xl font-bold tracking-tight text-primary-950 md:text-4xl">
-              Related projects
+              {t('projectDetail.relatedProjects')}
             </h2>
             <Button as="link" to="/projects" variant="link">
-              View all projects
+              {t('projectDetail.viewAllProjects')}
               <ArrowRight size={18} />
             </Button>
           </div>
@@ -260,15 +350,15 @@ export default function ProjectDetails() {
             <div>
               <p className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-accent-400">
                 <span className="inline-block h-px w-8 bg-accent-400" />
-                Next Step
+                {t('projectDetail.nextStep')}
               </p>
               <h2 className="mt-4 max-w-xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-                Have a project like this in mind?
+                {t('projectDetail.ctaTitle')}
               </h2>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Button as="link" to="/contact" variant="accent" size="lg">
-                Get a Quote
+                {t('projectDetail.getQuote')}
                 <ArrowRight size={18} />
               </Button>
               <Button
@@ -278,7 +368,7 @@ export default function ProjectDetails() {
                 variant="outline"
                 className="border-white/30 text-white hover:bg-surface hover:text-primary-950"
               >
-                Our Services
+                {t('projectDetail.ourServices')}
               </Button>
             </div>
           </div>
@@ -293,7 +383,7 @@ export default function ProjectDetails() {
             className="inline-flex items-center gap-2 text-sm font-medium text-concrete-dark transition-colors hover:text-primary-950"
           >
             <ArrowLeft size={16} />
-            Back to all projects
+            {t('projectDetail.backToProjects')}
           </Link>
         </Container>
       </Section>
@@ -301,9 +391,87 @@ export default function ProjectDetails() {
   )
 }
 
-function cnStatus(status: string): string {
+function cnStatus(status: ProjectStatus): string {
   const base =
     'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium'
-  const color = statusStyles[status] ?? statusStyles.Completed
-  return `${base} ${color}`
+  return `${base} ${statusStyles[status]}`
+}
+
+/** Turn a status value into a translation key fragment: "Under Maintenance" -> "maintenance". */
+function statusKey(status: ProjectStatus): string {
+  return projectStatusKey(status)
+}
+
+/** Group thousands so contract values read as written amounts. */
+function formatAmount(value: number, currency?: string): string {
+  const amount = new Intl.NumberFormat('en-GB', {
+    maximumFractionDigits: 0,
+  }).format(value)
+  return currency ? `${currency} ${amount}` : amount
+}
+
+/**
+ * The contractual and programme facts an administrator maintains, skipping any
+ * that have not been recorded so the section never renders empty placeholders.
+ */
+function contractFacts(
+  project: Project,
+  t: (key: string) => string,
+): { label: string; value: string }[] {
+  const facts: { label: string; value: string }[] = []
+
+  if (project.contract_amount) {
+    facts.push({
+      label: t('projectDetail.contractAmount'),
+      value: formatAmount(project.contract_amount, project.currency),
+    })
+  }
+  if (project.consultant) {
+    facts.push({ label: t('projectDetail.consultant'), value: project.consultant })
+  }
+  if (project.contractor) {
+    facts.push({ label: t('projectDetail.contractor'), value: project.contractor })
+  }
+  if (project.contract_date) {
+    facts.push({ label: t('projectDetail.contractDate'), value: project.contract_date })
+  }
+  if (project.start_date) {
+    facts.push({ label: t('projectDetail.startDate'), value: project.start_date })
+  }
+  if (project.completion_date) {
+    facts.push({ label: t('projectDetail.completionDate'), value: project.completion_date })
+  }
+  if (project.acceptance_date) {
+    facts.push({ label: t('projectDetail.acceptanceDate'), value: project.acceptance_date })
+  }
+
+  return facts
+}
+
+/** A labelled progress bar, clamped to 0-100 so bad data cannot overflow the track. */
+function ProgressBar({ label, value }: { label: string; value: number }) {
+  const percent = Math.min(100, Math.max(0, value))
+
+  return (
+    <div>
+      <div className="flex items-baseline justify-between">
+        <span className="text-xs font-medium uppercase tracking-[0.2em] text-concrete">
+          {label}
+        </span>
+        <span className="font-display text-lg font-semibold text-primary-950">
+          {percent}%
+        </span>
+      </div>
+      <div
+        role="progressbar"
+        aria-label={label}
+        aria-valuenow={percent}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className="mt-2 h-2 w-full bg-primary-200"
+      >
+        <div className="h-full bg-accent-500" style={{ width: `${percent}%` }} />
+      </div>
+    </div>
+  )
 }

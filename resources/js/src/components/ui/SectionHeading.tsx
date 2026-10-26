@@ -3,9 +3,15 @@ import { motion } from 'framer-motion'
 import { cn } from '../../lib/cn'
 
 /* ============================================================================
-   SectionHeading — editorial section intro
-   Composed of an eyebrow label, a large display heading, an optional
-   description, and an optional right-side action slot.
+   SectionHeading — unified section intro component.
+
+   Typography contract (must match all inline section headers):
+     eyebrow  10–11px  font-bold  uppercase  tracking-[0.32em]
+              accent-500 on light bg · accent-400 on dark bg
+     h2       3xl–5xl  font-bold  uppercase  leading-[0.95]  tracking-tight
+              primary-950 on light bg · white on dark bg
+     desc     base–lg  leading-relaxed
+              concrete-dark on light bg · primary-300 on dark bg
    ========================================================================== */
 
 type HeadingAlign = 'left' | 'center'
@@ -17,18 +23,17 @@ interface SectionHeadingProps {
   align?: HeadingAlign
   action?: ReactNode
   className?: string
+  /** Set true when placed on a dark (primary-950) background */
   light?: boolean
 }
 
 const containerVariants = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
     y: 0,
@@ -54,30 +59,31 @@ export function SectionHeading({
       whileInView="show"
       viewport={{ once: true, margin: '-80px' }}
       className={cn(
-        'flex flex-col gap-5',
+        'flex flex-col',
         centered && 'items-center text-center',
         className,
       )}
     >
       {eyebrow && (
-        <motion.span
+        <motion.p
           variants={itemVariants}
           className={cn(
-            'inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.25em]',
+            'inline-flex items-center gap-3 font-display text-[11px] font-bold uppercase tracking-[0.32em]',
             light ? 'text-accent-400' : 'text-accent-500',
           )}
         >
-          <span className="inline-block h-px w-8 bg-current" />
+          <span className="inline-block h-px w-8 bg-current" aria-hidden="true" />
           {eyebrow}
-        </motion.span>
+        </motion.p>
       )}
 
       <motion.h2
         variants={itemVariants}
         className={cn(
-          'max-w-3xl text-4xl font-semibold md:text-5xl lg:text-6xl',
-          light ? 'text-white' : 'text-primary-900',
-          centered && 'mx-auto',
+          'mt-5 font-display font-bold uppercase leading-[0.95] tracking-tight',
+          'text-3xl sm:text-4xl lg:text-5xl',
+          light ? 'text-white' : 'text-primary-950',
+          centered && 'mx-auto max-w-3xl',
         )}
       >
         {title}
@@ -87,9 +93,9 @@ export function SectionHeading({
         <motion.p
           variants={itemVariants}
           className={cn(
-            'max-w-xl text-base leading-relaxed md:text-lg',
-            light ? 'text-concrete-light' : 'text-concrete-dark',
-            centered && 'mx-auto',
+            'mt-5 text-base leading-relaxed sm:text-lg',
+            light ? 'text-primary-300' : 'text-concrete-dark',
+            centered && 'mx-auto max-w-xl',
           )}
         >
           {description}
@@ -97,7 +103,7 @@ export function SectionHeading({
       )}
 
       {action && (
-        <motion.div variants={itemVariants} className="mt-2">
+        <motion.div variants={itemVariants} className="mt-6">
           {action}
         </motion.div>
       )}

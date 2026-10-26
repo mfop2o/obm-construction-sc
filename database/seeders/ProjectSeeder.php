@@ -6,7 +6,7 @@ use App\Models\Project;
 use Illuminate\Database\Seeder;
 
 /**
- * ProjectSeeder — placeholder OBM Construction projects.
+ * ProjectSeeder â€” placeholder OBM Construction projects.
  *
  * NOTE: All names, locations, figures, clients, and narrative text below are
  * PLACEHOLDERS provided so the design and layout can be reviewed. Replace
@@ -109,7 +109,7 @@ class ProjectSeeder extends Seeder
             'category' => 'Residential',
             'year' => '2023',
             'location' => 'Addis Ababa, Ethiopia',
-            'status' => 'In Progress',
+            'status' => 'Ongoing',
             'client' => 'Client organisation placeholder',
             'description' => 'Multi-storey residential blocks delivered on schedule with structural integrity.',
             'overview' => 'A residential development of multi-storey apartment blocks engineered for safety, durability and comfortable living.',
@@ -118,7 +118,7 @@ class ProjectSeeder extends Seeder
             'result' => 'Residential blocks progressing steadily, with structural works meeting all safety and engineering standards.',
             'scope' => [
                 ['key' => 'Sector', 'value' => 'Residential'],
-                ['key' => 'Status', 'value' => 'In Progress'],
+                ['key' => 'Status', 'value' => 'Ongoing'],
                 ['key' => 'Location', 'value' => 'Addis Ababa, Ethiopia'],
                 ['key' => 'Year', 'value' => '2023'],
             ],
@@ -190,7 +190,7 @@ class ProjectSeeder extends Seeder
             'category' => 'Commercial',
             'year' => '2022',
             'location' => 'Metu, Ethiopia',
-            'status' => 'In Progress',
+            'status' => 'Ongoing',
             'client' => 'Client organisation placeholder',
             'description' => 'A modern commercial office building with high-quality internal fit-out.',
             'overview' => 'A contemporary commercial office building combining a clean architectural facade with efficient, light-filled office floors.',
@@ -199,7 +199,7 @@ class ProjectSeeder extends Seeder
             'result' => 'A modern, efficient office building progressing through fit-out with quality maintained throughout.',
             'scope' => [
                 ['key' => 'Sector', 'value' => 'Commercial'],
-                ['key' => 'Status', 'value' => 'In Progress'],
+                ['key' => 'Status', 'value' => 'Ongoing'],
                 ['key' => 'Location', 'value' => 'Metu, Ethiopia'],
                 ['key' => 'Year', 'value' => '2022'],
             ],

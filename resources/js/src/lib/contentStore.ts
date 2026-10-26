@@ -66,6 +66,11 @@ interface CareersData {
     location: string | null
     type: string
     blurb: string | null
+    qualification: string | null
+    responsibilities: string | null
+    experience_years: number | null
+    deadline: string | null
+    is_active: boolean
     sort_order: number
   }>
   values: Array<{ id: number; title: string; text: string; sort_order: number }>
@@ -195,24 +200,23 @@ export function refreshContactsSync(): void {
 /* ---- Module load: fetch everything ---- */
 
 async function refreshAll() {
-  try {
-    const [t, c, s, careers, st, about] = await Promise.all([
-      http.get<{ data: Testimonial[] }>('/api/testimonials'),
-      http.get<{ data: ContactData }>('/api/contact-settings'),
-      http.get<{ data: Service[] }>('/api/services'),
-      http.get<{ data: CareersData }>('/api/careers'),
-      http.get<{ data: HomeStat[] }>('/api/home-stats'),
-      http.get<{ data: AboutData }>('/api/about'),
-    ])
-    testimonials = t.data.data ?? []
-    contactData = c.data.data ?? contactData
-    services = s.data.data ?? []
-    careersData = careers.data.data ?? careersData
-    stats = st.data.data ?? []
-    aboutData = about.data.data ?? aboutData
-  } catch {
-    // Keep last known values on failure.
-  }
+  const [t, c, s, careers, st, about] = await Promise.allSettled([
+    http.get<{ data: Testimonial[] }>('/api/testimonials'),
+    http.get<{ data: ContactData }>('/api/contact-settings'),
+    http.get<{ data: ServiceItem[] }>('/api/services'),
+    http.get<{ data: CareersData }>('/api/careers'),
+    http.get<{ data: HomeStat[] }>('/api/home-stats'),
+    http.get<{ data: AboutData }>('/api/about'),
+  ])
+
+  // Each section settles on its own so one failing endpoint cannot blank the rest.
+  if (t.status === 'fulfilled') testimonials = t.value.data.data ?? []
+  if (c.status === 'fulfilled') contactData = c.value.data.data ?? contactData
+  if (s.status === 'fulfilled') services = s.value.data.data ?? []
+  if (careers.status === 'fulfilled') careersData = careers.value.data.data ?? careersData
+  if (st.status === 'fulfilled') stats = st.value.data.data ?? []
+  if (about.status === 'fulfilled') aboutData = about.value.data.data ?? aboutData
+
   ready = true
   emit()
 }
@@ -293,12 +297,26 @@ export async function deleteService(id: number): Promise<void> {
   await refreshAll()
 }
 
-export async function createOpening(input: Partial<{ title: string; department: string; location: string; type: string; blurb: string }>): Promise<void> {
+/** The vacancy fields HR can maintain from the admin careers page. */
+type OpeningInput = Partial<{
+  title: string
+  department: string
+  location: string
+  type: string
+  blurb: string
+  qualification: string
+  responsibilities: string
+  experience_years: number
+  deadline: string
+  is_active: boolean
+}>
+
+export async function createOpening(input: OpeningInput): Promise<void> {
   await http.post('/api/careers/openings', input)
   await refreshAll()
 }
 
-export async function updateOpening(id: number, input: Partial<{ title: string; department: string; location: string; type: string; blurb: string }>): Promise<void> {
+export async function updateOpening(id: number, input: OpeningInput): Promise<void> {
   await http.put(`/api/careers/openings/${id}`, input)
   await refreshAll()
 }

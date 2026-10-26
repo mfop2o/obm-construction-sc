@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X, ChevronRight } from 'lucide-react'
+import { Menu, X, ChevronRight, Phone } from 'lucide-react'
 import { cn } from '../../lib/cn'
 import { useScrolled } from '../../hooks/useScroll'
 import Button from '../ui/Button'
@@ -83,26 +83,44 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
+        'sticky top-0 z-50 w-full transition-all duration-500',
         dark
-          ? 'border-b border-white/10 bg-transparent'
+          ? 'bg-transparent border-b border-white/8'
           : scrolled
-            ? 'border-b border-primary-200/70 bg-background/90 shadow-sm backdrop-blur-xl'
-            : 'border-b border-transparent bg-background/70 backdrop-blur-sm',
+            ? 'border-b border-primary-100 bg-white/95 shadow-[0_2px_20px_rgba(0,0,0,0.06)] backdrop-blur-xl'
+            : 'border-b border-primary-100/60 bg-background/85 backdrop-blur-md',
       )}
     >
-      <div className="mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between px-5 sm:px-6 lg:h-20 lg:px-8">
+      {/* top micro-bar on light mode */}
+      {!dark && (
+        <div className="hidden border-b border-primary-100/60 bg-primary-950 lg:block">
+          <div className="mx-auto flex h-8 w-full max-w-screen-2xl items-center justify-between px-8">
+            <p className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-primary-400">
+              OBM Construction S.C. — Engineering Excellence
+            </p>
+            <a
+              href="tel:+251110000000"
+              className="inline-flex items-center gap-1.5 font-display text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-400 transition-colors hover:text-accent-300"
+            >
+              <Phone size={10} />
+              +251 11 000 0000
+            </a>
+          </div>
+        </div>
+      )}
+
+      <div className="mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between px-5 sm:px-6 lg:h-[72px] lg:px-8">
         {/* Brand */}
         <Logo
           to="/"
-          className={cn(
-            'transition-opacity',
-            dark ? 'bg-transparent' : '',
-          )}
+          heightClass="h-10 lg:h-11"
+          showWordmark
+          light={dark}
+          className="transition-opacity"
         />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex">
           {translatedNavItems.map((item) => (
             <NavLink
               key={item.to}
@@ -110,14 +128,14 @@ export default function Navbar() {
               end={item.to === '/'}
               className={({ isActive }) =>
                 cn(
-                  'group relative px-4 py-2 font-display text-sm font-medium transition-colors',
+                  'group relative rounded-md px-4 py-2 font-display text-sm font-medium transition-all duration-200',
                   isActive
                     ? dark
                       ? 'text-white'
                       : 'text-primary-950'
                     : dark
-                      ? 'text-primary-200 hover:text-white'
-                      : 'text-concrete-dark hover:text-primary-950',
+                      ? 'text-white/70 hover:bg-white/8 hover:text-white'
+                      : 'text-concrete-dark hover:bg-primary-50 hover:text-primary-950',
                 )
               }
             >
@@ -126,20 +144,27 @@ export default function Navbar() {
                   {item.label}
                   <span
                     className={cn(
-                      'absolute inset-x-4 -bottom-0.5 h-px scale-x-0 bg-accent-400 transition-transform duration-300',
-                      isActive ? 'scale-x-100' : 'group-hover:scale-x-100',
+                      'absolute inset-x-4 -bottom-0.5 h-0.5 scale-x-0 rounded-full bg-accent-400 transition-transform duration-300',
+                      isActive ? 'scale-x-100' : 'group-hover:scale-x-75',
                     )}
                   />
                 </>
               )}
             </NavLink>
           ))}
-          <LanguageSwitcher className={cn(dark ? 'ml-2' : 'ml-2')} />
+
+          <LanguageSwitcher className="ml-3" />
+
           <Button
             as="link"
-            to="/contact"
+            to="/request-quote"
             size="sm"
-            className="ml-4"
+            className={cn(
+              'ml-4 rounded-full px-6 text-[13px] font-semibold tracking-wide',
+              dark
+                ? 'bg-accent-400 text-primary-950 hover:bg-accent-300'
+                : 'bg-primary-950 text-white hover:bg-primary-800',
+            )}
             variant={dark ? 'accent' : 'primary'}
           >
             {t('nav.startProject')}
@@ -151,9 +176,9 @@ export default function Navbar() {
           ref={toggleRef}
           type="button"
           className={cn(
-            'inline-flex h-11 w-11 items-center justify-center rounded-none transition-colors lg:hidden',
+            'inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:hidden',
             dark
-              ? 'text-white hover:bg-surface/10'
+              ? 'text-white hover:bg-white/10'
               : 'text-primary-950 hover:bg-primary-100',
           )}
           onClick={() => setOpen((v) => !v)}
@@ -162,9 +187,9 @@ export default function Navbar() {
           aria-controls="mobile-menu"
         >
           {open ? (
-            <X size={24} strokeWidth={1.5} />
+            <X size={22} strokeWidth={1.75} />
           ) : (
-            <Menu size={24} strokeWidth={1.5} />
+            <Menu size={22} strokeWidth={1.75} />
           )}
         </button>
       </div>
@@ -175,7 +200,7 @@ export default function Navbar() {
           <>
             <motion.div
               key="scrim"
-              className="fixed inset-0 top-16 z-40 bg-primary-950/40 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 top-16 z-40 bg-primary-950/50 backdrop-blur-sm lg:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -189,20 +214,19 @@ export default function Navbar() {
               role="dialog"
               aria-modal="true"
               aria-label="Site navigation"
-              className="fixed inset-x-0 top-16 bottom-0 z-50 overflow-y-auto border-t border-primary-200 bg-background px-6 pb-10 pt-6 lg:hidden"
-              initial={{ opacity: 0, y: -12 }}
+              className="fixed inset-x-0 top-16 bottom-0 z-50 overflow-y-auto bg-white px-6 pb-10 pt-4 lg:hidden"
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
             >
-              <ul>
+              <ul className="divide-y divide-primary-100">
                 {translatedNavItems.map((item, i) => (
                   <motion.li
                     key={item.to}
-                    initial={{ opacity: 0, x: -16 }}
+                    initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 + i * 0.05, duration: 0.4 }}
-                    className="border-b border-primary-100"
+                    transition={{ delay: 0.04 + i * 0.04, duration: 0.35 }}
                   >
                     <NavLink
                       to={item.to}
@@ -210,7 +234,7 @@ export default function Navbar() {
                       onClick={() => setOpen(false)}
                       className={({ isActive }) =>
                         cn(
-                          'flex items-center justify-between py-4 font-display text-lg font-medium transition-colors',
+                          'flex items-center justify-between py-4 font-display text-base font-semibold transition-colors',
                           isActive
                             ? 'text-primary-950'
                             : 'text-concrete-dark hover:text-primary-950',
@@ -221,8 +245,8 @@ export default function Navbar() {
                         <>
                           <span>{item.label}</span>
                           <ChevronRight
-                            size={18}
-                            strokeWidth={1.5}
+                            size={16}
+                            strokeWidth={2}
                             className={cn(
                               'transition-colors',
                               isActive ? 'text-accent-500' : 'text-primary-300',
@@ -235,18 +259,29 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <div className="mt-6">
+              <div className="mt-5 flex items-center justify-between border-t border-primary-100 pt-5">
+                <span className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-concrete">
+                  Language
+                </span>
                 <LanguageSwitcher />
               </div>
 
-              <div className="mt-8 flex flex-col gap-3">
-                <Button as="link" to="/contact" size="lg" variant="primary">
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <Button as="link" to="/request-quote" size="md" variant="primary" className="rounded-xl justify-center">
                   {t('nav.startProject')}
                 </Button>
-                <Button as="link" to="/projects" size="lg" variant="outline">
+                <Button as="link" to="/projects" size="md" variant="outline" className="rounded-xl justify-center">
                   {t('nav.viewWork')}
                 </Button>
               </div>
+
+              <a
+                href="tel:+251110000000"
+                className="mt-6 flex items-center gap-2.5 rounded-xl border border-primary-100 bg-primary-50 px-4 py-3.5 text-sm font-medium text-primary-900"
+              >
+                <Phone size={16} className="text-accent-500" />
+                +251 11 000 0000
+              </a>
             </motion.nav>
           </>
         )}

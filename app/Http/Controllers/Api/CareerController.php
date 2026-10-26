@@ -16,23 +16,27 @@ class CareerController extends Controller
     {
         return response()->json([
             'data' => [
-                'openings' => Opening::all(),
+                'openings' => Opening::query()->active()->get(),
                 'values' => CareerValue::all(),
                 'benefits' => CareerBenefit::all(),
             ],
         ]);
     }
 
+    /** Public: a single vacancy with its advertisement details. */
+    public function show(int $id): JsonResponse
+    {
+        $opening = Opening::query()->findOrFail($id);
+
+        return response()->json([
+            'data' => $opening->append(['is_accepting_applications']),
+        ]);
+    }
+
     /** Admin: store an opening. */
     public function storeOpening(Request $request): JsonResponse
     {
-        $data = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'department' => ['nullable', 'string', 'max:255'],
-            'location' => ['nullable', 'string', 'max:255'],
-            'type' => ['nullable', 'string', 'max:50'],
-            'blurb' => ['nullable', 'string'],
-        ]);
+        $data = $request->validate($this->openingRules());
 
         $min = Opening::min('sort_order');
         $data['sort_order'] = ($min ?? 0) - 1;
@@ -46,13 +50,10 @@ class CareerController extends Controller
     {
         $opening = Opening::findOrFail($id);
 
-        $data = $request->validate([
-            'title' => ['sometimes', 'required', 'string', 'max:255'],
-            'department' => ['nullable', 'string', 'max:255'],
-            'location' => ['nullable', 'string', 'max:255'],
-            'type' => ['nullable', 'string', 'max:50'],
-            'blurb' => ['nullable', 'string'],
-        ]);
+        $rules = $this->openingRules();
+        $rules['title'] = ['sometimes', 'required', 'string', 'max:255'];
+
+        $data = $request->validate($rules);
 
         $opening->update($data);
 
@@ -65,6 +66,28 @@ class CareerController extends Controller
         Opening::findOrFail($id)->delete();
 
         return response()->json(null, 204);
+    }
+
+    /**
+     * Validation rules for a vacancy, including the advertisement details the
+     * applicant sees and the HR team maintains.
+     *
+     * @return array<string, array<int, string>>
+     */
+    private function openingRules(): array
+    {
+        return [
+            'title' => ['required', 'string', 'max:255'],
+            'department' => ['nullable', 'string', 'max:255'],
+            'location' => ['nullable', 'string', 'max:255'],
+            'type' => ['nullable', 'string', 'max:50'],
+            'blurb' => ['nullable', 'string'],
+            'qualification' => ['nullable', 'string', 'max:2000'],
+            'responsibilities' => ['nullable', 'string', 'max:3000'],
+            'experience_years' => ['nullable', 'integer', 'min:0', 'max:70'],
+            'deadline' => ['nullable', 'date', 'after:today'],
+            'is_active' => ['nullable', 'boolean'],
+        ];
     }
 
     /** Admin: store a career value. */

@@ -174,18 +174,18 @@ export default function About() {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, margin: '-40px' }}
-                  className="group bg-background p-6 transition-colors duration-300"
+                  className="group bg-background p-5 transition-colors duration-300"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-sm font-bold tracking-[0.2em] text-accent-500">
+                    <span className="font-display text-xs font-bold tracking-[0.2em] text-accent-500">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="h-8 w-8 rounded-full border border-primary-200 transition-colors duration-300 group-hover:border-accent-400 group-hover:bg-accent-400" />
+                    <span className="h-7 w-7 rounded-full border border-primary-200 transition-colors duration-300 group-hover:border-accent-400 group-hover:bg-accent-400" />
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-semibold text-primary-950">
+                  <h3 className="mt-3.5 font-display text-lg font-bold text-primary-950">
                     {value.title}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-concrete-dark">
+                  <p className="mt-2 text-sm leading-relaxed text-concrete-dark">
                     {value.description}
                   </p>
                 </motion.div>

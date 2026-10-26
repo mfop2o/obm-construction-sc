@@ -3,12 +3,15 @@ import { ArrowRight } from 'lucide-react'
 import { Container } from '../ui/Container'
 import Button from '../ui/Button'
 import { backgroundImages } from '../../data/images'
+import { useTranslation } from '../../i18n'
 
 /* ============================================================================
    HomeCTA — powerful full-width closing CTA over architectural photography.
    ========================================================================== */
 
 export default function HomeCTA() {
+  const { t } = useTranslation()
+
   return (
     <section className="relative overflow-hidden bg-primary-950 text-white">
       {/* photography */}
@@ -37,21 +40,27 @@ export default function HomeCTA() {
             <span className="inline-block h-px w-10 bg-accent-400" />
             Start Your Project
           </p>
-          <h2 className="mt-6 font-display text-5xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h2 className="mt-6 font-display text-4xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-5xl lg:text-6xl">
             Let&rsquo;s build
             <br />
             something
             <br />
             that lasts.
           </h2>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-primary-200">
+          <p className="mt-7 max-w-xl text-base leading-relaxed text-primary-200 sm:text-lg">
             Engineering excellence, quality and integrity — tell us about your
             vision and we&rsquo;ll take it from there.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button as="link" to="/contact" size="lg" variant="accent">
-              Start a Project
+            <Button
+              as="link"
+              to="/request-quote"
+              size="lg"
+              variant="accent"
+              className="rounded-full px-9 py-4 font-display font-bold shadow-[0_4px_24px_rgba(217,154,43,0.4)] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(217,154,43,0.55)]"
+            >
+              {t('nav.startProject')}
               <ArrowRight size={18} />
             </Button>
             <Button
@@ -59,10 +68,26 @@ export default function HomeCTA() {
               to="/contact"
               size="lg"
               variant="outline"
-              className="border-white/40 bg-surface/5 text-white backdrop-blur-sm hover:bg-surface hover:text-primary-950"
+              className="rounded-full border-white/30 bg-white/5 px-9 py-4 font-display text-white backdrop-blur-md transition-all duration-300 hover:border-white/60 hover:bg-white/15"
             >
-              Contact OBM
+              Contact Our Engineers
             </Button>
+          </div>
+
+          {/* Trust markers */}
+          <div className="mt-12 flex flex-wrap items-center gap-6 border-t border-white/10 pt-8 text-[12px] font-semibold uppercase tracking-wider text-primary-300">
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
+              Certified General Contractor
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
+              ISO-Compliant QA/QC
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
+              Nationwide Delivery
+            </span>
           </div>
         </motion.div>
       </Container>

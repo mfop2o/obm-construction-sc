@@ -2,7 +2,8 @@
   "brand": {
     "short": "OBM",
     "full": "OBM Construction S.C.",
-    "tagline": "Dandeettii Injinariingii"
+    "tagline": "Dandeettii Injinariingii",
+    "motto": "OBM – Nii humna dhabeessa, qulqullina dhaabbata, natiifama dhaabbata dhiheessuu."
   },
   "nav": {
     "home": "Seensa",
@@ -17,11 +18,12 @@
     "openMenu": "Baafata Bani"
   },
   "home": {
-    "title": "OBM Construction S.C. | Dandeettii Injinariingii Itiyoophiyaa Keessatti",
-    "description": "OBM dhaabbata ijaarsaa Itiyoophiyaa yoo ta'u, pirojektota daldalaa, manneen jireenyaa fi bu'uuraalee misoomaa qulqullina injinariingii, nageenyaa fi amanamummaadhaan hojjeta.",
+    "title": "OBM Construction S.C. | Nii humna dhabeessa, qulqullina dhaabbata",
+    "description": "OBM dhaabbata ijaarsaa Itiyoophiyaa yoo ta’u, pirojektota daldalaa, manneen jireenyaa fi bu’uuraalee misoomaa qulqullina injinariingii, nageenyaa fi amanamummaadhaan hojjeta. Nii humna dhabeessa, qulqullina dhaabbata, natiifama dhaabbata dhiheessuu.",
     "heroEyebrow": "Ijaarsa • Injinariingii • Bu'uura Misoomaa",
-    "heroTitleLine1": "Nuti Addunyaa Haqa-qabeessa",
-    "heroTitleLine2": "Ni Ijaarra."
+    "heroTitleLine1": "OBM – Nii humna dhabeessa,",
+    "heroTitleLine2": "Qulqullina dhaabbata,",
+    "heroTitleLine3": "Natiifama dhaabbata dhiheessuu."
   },
   "about": {
     "title": "Waa'ee Keenya | OBM Construction S.C.",

@@ -34,15 +34,15 @@ interface FormFieldProps {
 }
 
 const baseControl =
-  'w-full rounded-none border bg-surface px-4 text-base text-primary-950 ' +
-  'placeholder:text-concrete transition-colors duration-200 ' +
+  'w-full rounded-xl border bg-surface px-4 text-base text-primary-950 ' +
+  'placeholder:text-concrete/70 transition-all duration-200 shadow-sm ' +
   'focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-accent-400 ' +
   'disabled:cursor-not-allowed disabled:opacity-60'
 
 const stateControl = (error?: string) =>
   error
     ? 'border-red-500 focus:border-red-500'
-    : 'border-primary-200 hover:border-primary-300 focus:border-accent-400'
+    : 'border-primary-200/90 hover:border-primary-400 focus:border-accent-400'
 
 export function FormField({
   id,

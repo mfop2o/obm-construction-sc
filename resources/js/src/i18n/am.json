@@ -2,7 +2,8 @@
   "brand": {
     "short": "OBM",
     "full": "OBM Construction S.C.",
-    "tagline": "የምህንድስና ልህቀት"
+    "tagline": "የምህንድስና ልህቀት",
+    "motto": "OBM – በኃይሎ እንገናኝ፣ በጥራት የሚጠናቀቅ፣ የሚቀጥሉ ውጤቶችንም እንሰጣለን።"
   },
   "nav": {
     "home": "መነሻ",
@@ -17,11 +18,12 @@
     "openMenu": "ምናሌ ክፈት"
   },
   "home": {
-    "title": "OBM Construction S.C. | የምህንድስና ልህቀት በኢትዮጵያ",
-    "description": "OBM Construction S.C. የንግድ፣ የመኖሪያ እና የመሠረተ ልማት ፕሮጀክቶችን በምህንድስና ልህቀት፣ ደህንነት እና ታማኝነት የሚያቀርብ የኢትዮጵያ የግንባታ ኩባንያ ነው።",
+    "title": "OBM Construction S.C. | በኃይሎ እንገናኝ፣ በጥራት የሚጠናቀቅ",
+    "description": "OBM Construction S.C. የንግድ፣ የመኖሪያ እና የመሠረተ ልማት ፕሮጀክቶችን በምህንድስና ልህቀት፣ ደህንነት እና ታማኝነት የሚያቀርብ የኢትዮጵያ የግንባታ ኩባንያ ነው። በኃይሎ እንገናኝ፣ በጥራት የሚጠናቀቅ፣ የሚቀጥሉ ውጤቶችንም እንሰጣለን።",
     "heroEyebrow": "ግንባታ • ምህንድስና • መሰረተ ልማት",
-    "heroTitleLine1": "እኛ ፍትሃዊ ዓለምን",
-    "heroTitleLine2": "እንገነባለን።"
+    "heroTitleLine1": "OBM – በኃይሎ እንገናኝ፣",
+    "heroTitleLine2": "በጥራት የሚጠናቀቅ፣",
+    "heroTitleLine3": "የሚቀጥሉ ውጤቶችንም እንሰጣለን።"
   },
   "about": {
     "title": "ስለ እኛ | OBM Construction S.C.",

@@ -11,8 +11,10 @@
       "homeStats": "Home Stats",
       "about": "About",
       "careers": "Careers",
+      "applications": "Job applications",
       "contactInfo": "Contact Info & Offices",
-      "contacts": "Contacts (Messages)"
+      "contacts": "Contacts (Messages)",
+      "inquiries": "Inquiries (Requests)"
     },
     "settings": "Settings",
     "signOut": "Sign out",
